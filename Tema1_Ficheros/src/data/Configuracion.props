@@ -1,0 +1,8 @@
+#Fichero de configuración
+#Thu Oct 03 09:34:48 CEST 2024
+date=2022-11-12
+password=micontrasenia
+port=3306
+power=true
+server=localhost
+user=usuario
