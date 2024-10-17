@@ -8,7 +8,11 @@ public class Persona implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1297156639210753616L;
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+	
 	private StringBuilder nombre;
 	private StringBuilder apellido1;
 	private StringBuilder apellido2;
