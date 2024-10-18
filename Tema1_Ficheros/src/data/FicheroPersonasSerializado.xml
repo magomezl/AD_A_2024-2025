@@ -5,13 +5,11 @@
         <apellido1>Lopez</apellido1>
         <apellido2>Sanabria</apellido2>
         <nacimiento>Fri Aug 11 00:00:00 CEST 1989</nacimiento>
-        <nombre>Elena</nombre>
     </persona>
     <persona>
         <nombre>Juan</nombre>
         <apellido1>García</apellido1>
         <apellido2>López</apellido2>
         <nacimiento>Fri Sep 22 00:00:00 CEST 2000</nacimiento>
-        <nombre>Juan</nombre>
     </persona>
 </personas>

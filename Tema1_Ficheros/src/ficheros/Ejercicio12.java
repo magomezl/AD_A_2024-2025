@@ -27,13 +27,14 @@ import ficheros.ejercicio6.Persona;
 public class Ejercicio12 {
 	private final static String DOCTRABAJO_IN = "FicheroPersonasSerializado.dat";
 	private final static String DOCTRABAJO_OUT = "FicheroPersonasSerializado.xml";
-
+	private static DocumentBuilderFactory dBf = DocumentBuilderFactory.newInstance();
+	private static DocumentBuilder dB; 
 	public static void main(String[] args) {
 		ObjectInputStream oIS = null;
 		Document doc=null;
 		try {
-			DocumentBuilderFactory dBf = DocumentBuilderFactory.newInstance();
-			DocumentBuilder dB = dBf.newDocumentBuilder();
+			dB = dBf.newDocumentBuilder();
+			System.out.println("dBf: " + dBf.toString() + "\ndB: " + dB.toString());
 			doc = dB.newDocument();
 			
 			Element elementoRaiz = doc.createElement("personas");
@@ -87,14 +88,9 @@ public class Ejercicio12 {
 
 	public static void LeerXML() {
 		try {
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-
 			//Cargamos en memoria el doc XML        
-			Document doc = builder.parse(new File(Ejercicio3.RUTA + DOCTRABAJO_OUT));
-
+			Document doc = dB.parse(new File(Ejercicio3.RUTA + DOCTRABAJO_OUT));
 			LeeNodo(doc.getDocumentElement());
-
 		} catch (Exception e) {e.printStackTrace();}
 	}
 
