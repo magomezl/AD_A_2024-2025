@@ -44,10 +44,12 @@ public class Ejercicio12 {
 				persona = (Persona) oIS.readObject();
 				Element elementoPersona = doc.createElement("persona");
 				
-				Element elemNombre = doc.createElement("nombre");
-				Text textoNombre = doc.createTextNode(persona.getNombre().toString());
-				elementoPersona.appendChild(elemNombre);
-				elemNombre.appendChild(textoNombre);
+				CreaElemento("nombre", persona.getNombre().toString(), elementoPersona, doc);
+				CreaElemento("apellido1", persona.getApellido1().toString(), elementoPersona, doc);
+				CreaElemento("apellido2", persona.getApellido2().toString(), elementoPersona, doc);
+				CreaElemento("nacimiento", persona.getNacimiento().toString(), elementoPersona, doc);
+				
+				elementoRaiz.appendChild(elementoPersona);
 			}
 		}catch (EOFException e) {
 		}catch (IOException e) {
@@ -75,9 +77,12 @@ public class Ejercicio12 {
 				e.printStackTrace();
 			}
 		}
-		
-			
-
 	}
 
+	private static void CreaElemento(String etiqueta, String valor, Element padre, Document doc) {
+		Element elem = doc.createElement(etiqueta);
+		Text texto = doc.createTextNode(valor);
+		padre.appendChild(elem);
+		elem.appendChild(texto);
+	}
 }
