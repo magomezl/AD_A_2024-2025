@@ -18,6 +18,8 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 
 import ficheros.ejercicio6.Persona;
@@ -51,6 +53,8 @@ public class Ejercicio12 {
 				
 				elementoRaiz.appendChild(elementoPersona);
 			}
+			
+			
 		}catch (EOFException e) {
 		}catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -64,11 +68,13 @@ public class Ejercicio12 {
 		}finally {
 			
 			try {
+				
 				TransformerFactory tF = TransformerFactory.newInstance();
 				Transformer t = tF.newTransformer();
 				t.setOutputProperty(OutputKeys.INDENT, "yes");
 				t.transform(new DOMSource(doc), new StreamResult(new File(Ejercicio3.RUTA+DOCTRABAJO_OUT)));
 				oIS.close();
+				LeerXML();
 			} catch (TransformerException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -76,6 +82,37 @@ public class Ejercicio12 {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+	}
+
+	public static void LeerXML() {
+		try {
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+
+			//Cargamos en memoria el doc XML        
+			Document doc = builder.parse(new File(Ejercicio3.RUTA + DOCTRABAJO_OUT));
+
+			LeeNodo(doc.getDocumentElement());
+
+		} catch (Exception e) {e.printStackTrace();}
+	}
+
+	public static void LeeNodo(Node nodo) {
+		if ( nodo.getNodeType()==Node.ELEMENT_NODE) {
+			System.out.print("<" + nodo.getNodeName() + ">");
+			
+			NodeList nodosHijos = nodo.getChildNodes();
+			if (nodosHijos.item(0).getNodeType()==Node.ELEMENT_NODE) { 
+				System.out.println("\t");
+			}
+			for (int i=0; i<nodosHijos.getLength(); i++) {
+				LeeNodo(nodosHijos.item(i));
+			}
+			System.out.println("</" + nodo.getNodeName() + ">");
+			
+		}else if (nodo.getNodeType()==Node.TEXT_NODE) {
+			System.out.print(nodo.getNodeValue());
 		}
 	}
 
