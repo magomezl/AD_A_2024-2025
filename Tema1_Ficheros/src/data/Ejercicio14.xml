@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="BorrarDespues.xsl" ?>
+
+<!-- ExamenTest_Reglas.xsl -->
+<!DOCTYPE examen [
+<!ELEMENT examen (materia, pregunta*)>
+<!ELEMENT materia (#PCDATA)>
+<!ELEMENT pregunta (enunciado, respuesta+)>
+<!ELEMENT enunciado (#PCDATA | clave)*>
+<!ELEMENT respuesta (#PCDATA)>
+<!ELEMENT clave (#PCDATA)>
+<!ATTLIST pregunta dificultad (alta | media | baja) "baja">
+<!ATTLIST respuesta validez (si | no) #REQUIRED>
+]>
+
+<examen>
+	<materia>XML</materia>
+    <pregunta dificultad="baja">
+       	<enunciado>Indique que definicion de XML es correcta. </enunciado>
+       	<respuesta validez="no">Es un lenguaje de programación</respuesta>
+       	<respuesta validez="si">Es un metalenguaje de etiquetado</respuesta>
+       	<respuesta validez="no">Es un procesador de texto</respuesta>
+       	<respuesta validez="no">Es un tipo de base de datos</respuesta>
+	</pregunta>
+
+    <pregunta dificultad="baja">
+        <enunciado>Para definir un <clave>atributo</clave> optativo en un <clave> DTD </clave> se usa: </enunciado>
+        <respuesta validez="no">REQUIRED</respuesta>
+    	<respuesta validez="si">IMPLIED</respuesta>
+    	<respuesta validez="no">FIXED</respuesta>
+	    <respuesta validez="no">No se puede definir como optativo</respuesta>
+	</pregunta>
+</examen>
