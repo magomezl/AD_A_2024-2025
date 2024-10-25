@@ -16,8 +16,18 @@ import utilidades.Utilidades;
 
 public class Ejercicio6 {
 	private final static String DOCTRABAJO_IN = "FicheroPersonasSerializado.dat";
+	
 	private static Scanner sc = new Scanner(System.in);
 	private static ObjectOutputStream oOS; 
+	
+	
+	public static ObjectOutputStream getoOS() {
+		return oOS;
+	}
+
+	public static String getDoctrabajoIn() {
+		return DOCTRABAJO_IN;
+	}
 	
 	public static void inicializar() {
 		try {
@@ -94,8 +104,8 @@ public class Ejercicio6 {
 	}
 	public static void main(String[] args) {
 		inicializar();
-		escribirObjeto(obtenerDatos());
-		escribirObjeto(obtenerDatos());
+//		escribirObjeto(obtenerDatos());
+//		escribirObjeto(obtenerDatos());
 		leerObjetos();
 		try {
 			oOS.close();
