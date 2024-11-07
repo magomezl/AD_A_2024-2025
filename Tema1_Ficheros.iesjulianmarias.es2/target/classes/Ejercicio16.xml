@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<examen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:noNamespaceSchemaLocation="./EsquemaExamen.xsd">
+<examen>
     <autores>
         <autor id="A1">
             <nombre>Juan Antonio</nombre>
@@ -22,6 +21,13 @@
             <apellido2>Sánchez</apellido2>
             <puesto>Profesor titular</puesto>
             <entidadTrabajo>Universidad de Salamanca</entidadTrabajo>
+        </autor>
+        <autor id="A4">
+            <nombre>Alfonso</nombre>
+            <apellido1>García</apellido1>
+            <apellido2>Muñiz</apellido2>
+            <puesto>Profesor Asociado</puesto>
+            <entidadTrabajo>Universidad de Valladolid</entidadTrabajo>
         </autor>
     </autores>
     <preguntas>

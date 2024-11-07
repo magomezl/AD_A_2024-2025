@@ -71,4 +71,12 @@ public class Autor {
 	public void setPuesto(String puesto) {
 		this.puesto = puesto;
 	}
+
+	@Override
+	public String toString() {
+		return "Autor: " + apellido1 + " " + apellido2 + ", " + nombre + "(" + id + ") - " + 
+					entidadTrabajo + " - " + puesto;
+	}
+	
+	
 }
