@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 import utilidades.Utilidades;
 
@@ -13,10 +14,6 @@ public class Ejercicio17 {
 	private static Connection con;
 	private final static String DB = "dbEmpresaSQLite.dat";
 	
-	public Ejercicio17() {
-		
-	}
-
 	public static void main(String[] args) {
 		establecerConexion_SQLite();
 		System.out.println(anadirDpto("Ventas", "Sevilla")!=0?"El departamento se añadió con éxito": "El departamento NO se añadió");
@@ -36,7 +33,68 @@ public class Ejercicio17 {
 //		System.out.println(modificarDpto(20, "RRHH", "Burgos")!=0?"El departamento se modificó con éxito": "El departamento NO se MODIFICO");
 //		System.out.println(modificarDpto(200, "RRHH", "Burgos")!=0?"El departamento se modificó con éxito": "El departamento NO se MODIFICO");
 //		listarDptos();
+		anadirEmpleado("Manuel", "García", "López", "RRHH");
 		cerrarConexion();
+	}
+
+	private static void anadirEmpleado(String nombre, String apellido1, String apellido2, String dpto) {
+		
+		try {
+			PreparedStatement sentencia1 = con.prepareStatement("SELECT dept_no FROM departamentos where dnombre = ?");
+			sentencia1.setString(1, dpto);
+			ResultSet rS1 = sentencia1.executeQuery();
+			rS1.next();
+			if (rS1.wasNull()) {
+				System.out.println("No existe el departamento. A continuación se muestran los departamentos existentes:");
+				listarDptos();
+				System.out.print("\n1. Añadir el departamento y el empleado "
+						+ "\n2. Añadir el empleado a un departamento existente "
+						+ "\n3. Salir sin hacer nada "
+						+ "\nSeleccione una opción: ");
+				Scanner sc = new Scanner(System.in);
+				Scanner scI = new Scanner(System.in);
+				switch(sc.nextInt()) {
+				case 1:
+					System.out.println("Localidad del departamento: ");
+					String localidad = scI.nextLine();
+					PreparedStatement sentencia2 = con.prepareStatement("INSERT INTO departamentos (dnombre, loc) VALUES (?, ?)", 
+							PreparedStatement.RETURN_GENERATED_KEYS);
+					sentencia2.setString(1, dpto );
+					sentencia2.setString(2, localidad);
+					sentencia2.executeUpdate();
+					ResultSet idGenerado = sentencia2.getGeneratedKeys();
+					idGenerado.next();
+					int idDpto = idGenerado.getInt(1);
+					PreparedStatement sentencia3 = con.prepareStatement("INSERT INTO empleados (nombre, apellido1, "
+							+ "apellido2, departamento) VALUES (?, ?, ?, ?)");
+					sentencia3.setString(1, nombre);
+					sentencia3.setString(2, apellido1);
+					sentencia3.setString(3, apellido2);
+					sentencia3.setInt(4, idDpto);
+					sentencia3.executeUpdate();
+					break;
+				case 2:
+					System.out.println("Indique el nombre del departamento al que desea añadir al empleado: ");
+					String departamento = scI.nextLine();
+					anadirEmpleado(nombre, apellido1, apellido2, departamento);
+					break;
+				case 3:
+					//rollback()
+					break;
+				}
+				return;
+			}
+			PreparedStatement sentencia3 = con.prepareStatement("INSERT INTO empleados (nombre, apellido1, "
+					+ "apellido2, departamento) VALUES (?, ?, ?, ?)");
+			sentencia3.setString(1, nombre);
+			sentencia3.setString(2, apellido1);
+			sentencia3.setString(3, apellido2);
+			sentencia3.setInt(4, rS1.getInt(1));
+			sentencia3.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static int anadirDpto(String dptoNom, String dptoLoc) {
