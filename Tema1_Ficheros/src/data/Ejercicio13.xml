@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<recetario>
+    <recetas>
+        <receta idReceta="R001" nombre="Sopa de cebolla" comensales="4" Tiempo="20" autor="A001" imagen="SopaCebolla" extension="jpg">
+            <ingredientes>
+                <ingrediente cantidad="1" unidad="kg" nombre="cebollas"/>
+                <ingrediente cantidad="2" unidad="litros" nombre="caldo de carne"/>
+                <ingrediente cantidad="100" unidad="gramos" nombre="mantequilla"/>
+                <ingrediente cantidad="1" unidad="cucharada" nombre="harina"/>
+                <ingrediente cantidad="100" unidad="gramo" nombre="queso emmental suizo o gruyére rallado"/>
+                <ingrediente cantidad="" unidad="" nombre="Pan tostado en rebanadas"/>
+                <ingrediente cantidad="" unidad="" nombre="Tomillo"/>
+                <ingrediente cantidad="1" unidad="hoja" nombre="Laurel"/>
+                <ingrediente cantidad="" unidad="" nombre="Pimienta"/>
+            </ingredientes>
+            <proceso>
+                <paso>Pelar y partir las cebollas en rodajas finas</paso>
+                <paso>Rehogarlas con la mantequilla, sal y pimienta a fuego lento hasta que estén transparentes sin dorarse</paso>
+                <paso>Añadir la harina sin dejar de remover</paso>
+                <paso>Ponerlo en una cazuela con el caldo, el tomillo y el laurel</paso>
+                <paso>Dejar cocer a fuego lento durante unos 15 minutos</paso>
+                <paso>Poner las rebanadas de pan encima, espolvorear el queso y gratinar al horno</paso>
+            </proceso>
+        </receta>            
+            
+        <receta idReceta="R002" nombre="Pollo al curry" comensales="4" Tiempo="30" autor="A001" dificultad="fácil" imagen="PolloAlcurry" extension="jpg">
+            <ingredientes>
+                <ingrediente cantidad="1" unidad="kg" nombre="pechugas de pollo"/>
+                <ingrediente cantidad="1" unidad="" nombre="cebolla"/>
+                <ingrediente cantidad="2" unidad="dientes" nombre="ajo"/>
+                <ingrediente cantidad="250" unidad="ml" nombre="nata líquida"/>
+                <ingrediente cantidad="4" unidad="cucharada" nombre="curry"/>
+                <ingrediente cantidad="" unidad="" nombre="aceite de oliva"/>
+                <ingrediente cantidad="" unidad="" nombre="pimienta negra"/>
+                <ingrediente cantidad="al gusto" unidad="" nombre="sal"/>
+            </ingredientes>
+            <proceso>
+                <paso>Hacer un sofrito con el ajo y la cebolla (picado en trozos lo más pequeños posibles). Salpimentar y dejar cocinar 5 minútos.</paso>  
+                <paso>Corta el pollo en porciones no muy grandes, preferiblemente en dados. Salpimienta y luego incorpora a la sartén en la que tienes la cebolla y el ajo.</paso>   
+                <paso>Cuando el pollo esté dorado,, añade las 4 cucharadas de curry y remueve y deja cocinar 2 minutos todo junto.</paso>   
+                <paso>Agrega la nata, removiendo y dejar cocinar a fuego bajo durante 10 minutos.</paso>    
+                <paso>Sirve este rico pollo al curry con nata junto con una buena cantidad de arroz cocido.</paso>   
+            </proceso>
+        </receta>
+        
+        <receta idReceta="R003" nombre="Brocoli salteado" comensales="4" Tiempo="10" autor="A002" dificultad="fácil" imagen="BrocolliSalteado" extension="jpg">
+            <ingredientes>
+                <ingrediente cantidad="1/2" unidad="kg" nombre="brócoli"/>
+                <ingrediente cantidad="2" unidad="dientes" nombre="ajo"/>
+                <ingrediente cantidad="1" unidad="cucharada" nombre="aceite"/>
+            </ingredientes>
+            <proceso>
+                <paso>Lava muy bien el brócoli, sécalo y escúrrelo.</paso>
+                <paso>Llenamos un cuenco con agua y  ponemos a hervir por unos 10 minutos a media potencia para que se vuelvan tiernos.</paso>
+                <paso>Pelamos los dientes de ajo y los picamos en láminas o trozos pequeños. Ponemos una sartén al fuego con una cucharadita de aceite de oliva y lo freímos, hasta que se doren.</paso>
+                <paso>En el momento que el brócoli esté listo, lo colamos y escurrimos bien, para que suelten toda el agua. Ahora a la sartén con los dientes de ajo.</paso>
+                <paso>Lo freímos todo al mismo tiempo, para que se hagan bien los dos ingredientes juntos por varios minutos. Salpimentar al gusto y dejar otro par de minutos para que coja sabor.</paso>
+            </proceso>
+        </receta>
+        
+        <receta idReceta="R004" nombre="Humus (Paté de garbanzos)" comensales="4" Tiempo="30" autor="A002" dificultad="fácil" imagen="hummus" extension="jpg">
+            <ingredientes>
+                <ingrediente cantidad="400" unidad="gramos" nombre="garbanzos cocidos"/>
+                <ingrediente cantidad="2" unidad="dientes" nombre="ajo"/>
+                <ingrediente cantidad="3" unidad="cucharadas" nombre="pasta de sésamo" opcional="sí"/>
+                <ingrediente cantidad="" unidad="pellizco" nombre="comino"/>
+                <ingrediente cantidad="1/2" unidad="" nombre="limón"/>
+                <ingrediente cantidad="3" unidad="cucharadas" nombre="aceite de oliva"/>
+                <ingrediente cantidad="al gusto" unidad="" nombre="sal"/>
+                <ingrediente cantidad="al gusto" unidad="" nombre="pimienta"/>
+            </ingredientes>
+            <proceso>
+                <paso>Se mezclan los ingredientes en un recipiente y se bate con la batidora hasta conseguir una textura cremosa y homogenea.</paso>
+                <paso>Si se desea más cremoso se le puede echar un poco de agua de la cocción o alguna leche vegetal.</paso>
+                <paso>Al servir se puede adornar con un poco de pimentón dulce (o picante), semillas de sésamo y un chorito de aceite de oliva.</paso>
+            </proceso>
+        </receta>
+        
+        <receta idReceta="R005" nombre="Flan de huevo" comensales="6" Tiempo="30" autor="A003" dificultad="fácil" imagen="flan" extension="jpg">
+            <ingredientes>
+                <ingrediente cantidad="5" unidad="" nombre="huevos"/>
+                <ingrediente cantidad="750" unidad="ml" nombre="leche entera"/>
+                <ingrediente cantidad="14" unidad="cucharadas" nombre="azucar"/>
+                <ingrediente cantidad="" unidad="" nombre="agua"/>
+               
+            </ingredientes>
+            <proceso>
+                <paso>Preparamos el caramelo en una cacerola, con las tres cucharadas de azúcar y un poco de agua.</paso>
+                <paso>Vertemos el caramelo en la flanera extendiendolo bien por los bordes del molde.</paso>
+                <paso>Batimos en un bol, los huevos el azúcar y la leche. lo ponemos en la flanera y lo introducimos al horno a 200 grados al baño María durante una hora más o menos.</paso>
+            </proceso>
+        </receta>
+  
+        <!-- 
+        <receta idReceta="R00" nombre="" comensales="4" Tiempo="30" autor="A00" dificultad="fácil">
+            <ingredientes>
+                <ingrediente cantidad="" unidad="" nombre=""/>
+                <ingrediente cantidad="" unidad="" nombre=""/>
+                <ingrediente cantidad="" unidad="" nombre=""/>
+                <ingrediente cantidad="" unidad="" nombre=""/>
+                <ingrediente cantidad="" unidad="" nombre=""/>
+                <ingrediente cantidad="" unidad="" nombre=""/>
+            </ingredientes>
+            <proceso>
+                <paso></paso>
+                <paso></paso>
+                <paso></paso>
+                <paso></paso>
+                <paso></paso>
+            </proceso>
+        </receta>
+        -->
+    </recetas>
+    
+    <autores>
+        <autor idAutor="A001" apellido1="Witty" apellido2="" nombre="Holly" nacionalidad="Reino Unido" sexo="F"/>
+        <autor idAutor="A002" apellido1="Alcantara" apellido2="Gomez" nombre="Julia" nacionalidad="España" sexo="F"/>
+        <autor idAutor="A003" apellido1="Redondo" apellido2="Quintana" nombre="Alvaro" nacionalidad="España" sexo="M"/>
+    </autores>
+    
+    <tiposRecetas>
+        <tipoReceta idTipoR="1" descripcion="Entrantes" clase="TipoComida"/>
+        <tipoReceta idTipoR="2" descripcion="Primeros Platos" clase="TipoComida"/>
+        <tipoReceta idTipoR="3" descripcion="Segundos Platos" clase="TipoComida"/>
+        <tipoReceta idTipoR="4" descripcion="Postres" clase="TipoComida"/>
+        <tipoReceta idTipoR="5" descripcion="Acompañamientos y salsas" clase="TipoComida"/>
+        
+        <tipoReceta idTipoR="6" descripcion="Recetas para hacer con niños" clase="Dificultad"/>
+        <tipoReceta idTipoR="7" descripcion="Recetas faciles" clase="Dificultad"/>
+        <tipoReceta idTipoR="8" descripcion="Recetas de dificultad media" clase="Dificultad"/>
+        <tipoReceta idTipoR="9" descripcion="Recetas elaboradas" clase="Dificultad"/>
+        
+        <tipoReceta idTipoR="10" descripcion="Recetas low cost" clase="Presupuesto"/>
+        <tipoReceta idTipoR="11" descripcion="Recetas de coste medio" clase="Presupuesto"/>
+        <tipoReceta idTipoR="12" descripcion="Recetas gourmet" clase="Presupuesto"/>
+    </tiposRecetas>
+    
+    <recetasClasificadas>
+        <recetaClasificacion codReceta="R001" tipoComida="2"  tipoDificultad="8" tipoPresupuesto="10" />
+        <recetaClasificacion codReceta="R002" tipoComida="3" tipoDificultad="8" tipoPresupuesto="11"/>
+        <recetaClasificacion codReceta="R003" tipoComida="2" tipoDificultad="7" tipoPresupuesto="11"/>
+        <recetaClasificacion codReceta="R004" tipoComida="1" tipoDificultad="7" tipoPresupuesto="10"/>
+        <recetaClasificacion codReceta="R005" tipoComida="4" tipoDificultad="6" tipoPresupuesto="10"/>
+    </recetasClasificadas>
+    
+</recetario>

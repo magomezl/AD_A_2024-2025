@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<personas>
+    <persona>
+        <nombre>Elena</nombre>
+        <apellido1>Lopez</apellido1>
+        <apellido2>Sanabria</apellido2>
+        <nacimiento>Fri Aug 11 00:00:00 CEST 1989</nacimiento>
+    </persona>
+    <persona>
+        <nombre>Juan</nombre>
+        <apellido1>García</apellido1>
+        <apellido2>López</apellido2>
+        <nacimiento>Fri Sep 22 00:00:00 CEST 2000</nacimiento>
+    </persona>
+</personas>

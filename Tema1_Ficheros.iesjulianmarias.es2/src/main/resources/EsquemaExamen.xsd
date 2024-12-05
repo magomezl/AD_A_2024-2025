@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="examen" type="TipoExamen" />
+
+	<xs:complexType name="TipoExamen">
+		<xs:sequence>
+			<xs:element name="autores" type="TipoAutores" minOccurs="1" maxOccurs="1" />
+			<xs:element name="preguntas" type="TipoPreguntas" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TipoAutores">
+		<xs:sequence>
+			<xs:element name="autor" type="TipoAutor" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TipoPreguntas">
+		<xs:sequence>
+			<xs:element name="pregunta" type="TipoPregunta" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TipoAutor">
+		<xs:sequence>
+			<xs:element name="nombre" type="TipoCadenaCorta" minOccurs="1" maxOccurs="1" />
+			<xs:element name="apellido1" type="TipoCadenaCorta" minOccurs="1" maxOccurs="1" />
+			<xs:element name="apellido2" type="TipoCadenaCorta" minOccurs="1" maxOccurs="1" />
+			<xs:element name="puesto" type="TipoCadenaLarga" minOccurs="1" maxOccurs="1" />
+			<xs:element name="entidadTrabajo" type="TipoCadenaLarga" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="id" type="TipoAutoria" />
+	</xs:complexType>
+
+	<xs:complexType name="TipoPregunta">
+		<xs:sequence>
+			<xs:element name="enunciado" type="TipoCadenaLarga" minOccurs="1" maxOccurs="1" />
+			<xs:element name="respuesta" type="TipoRespuesta" minOccurs="2" maxOccurs="4" />
+		</xs:sequence>
+		<xs:attribute name="dificultad" type="TipoDificultad" />
+		<xs:attribute name="autoria" type="TipoAutoria" />
+	</xs:complexType>
+
+	<xs:complexType name="TipoRespuesta">
+		<xs:simpleContent>
+			<xs:extension base="TipoCadenaLarga">
+				<xs:attribute name="validez" type="TipoBooleano" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:simpleType name="TipoCadenaCorta">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="TipoCadenaLarga">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="300" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="TipoDificultad">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="baja" />
+			<xs:enumeration value="media" />
+			<xs:enumeration value="alta" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="TipoAutoria">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="A[0-9]{1,3}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="TipoBooleano">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="si" />
+			<xs:enumeration value="no" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,22 @@
+<familia>
+  <miembro name="Julian">
+    <primerApellido>Pérez</primerApellido>
+    <segundoApellido>Sánchez</segundoApellido>
+    <nacimiento>2000-09-10 22:00:00.0 UTC</nacimiento>
+  </miembro>
+  <miembro name="Alfonso">
+    <primerApellido>Alonso</primerApellido>
+    <segundoApellido>García</segundoApellido>
+    <nacimiento>2002-02-01 23:00:00.0 UTC</nacimiento>
+  </miembro>
+  <miembro name="Marta">
+    <primerApellido>Rosa</primerApellido>
+    <segundoApellido>Planet</segundoApellido>
+    <nacimiento>2000-10-09 22:00:00.0 UTC</nacimiento>
+  </miembro>
+  <miembro name="Alejandra">
+    <primerApellido>García</primerApellido>
+    <segundoApellido>Piñel</segundoApellido>
+    <nacimiento>2001-07-21 22:00:00.0 UTC</nacimiento>
+  </miembro>
+</familia>

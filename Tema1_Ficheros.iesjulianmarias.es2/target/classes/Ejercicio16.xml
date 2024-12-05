@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<examen>
+    <autores>
+        <autor id="A1">
+            <nombre>Juan Antonio</nombre>
+            <apellido1>García</apellido1>
+            <apellido2>Pérez</apellido2>
+            <puesto>Profesor titular</puesto>
+            <entidadTrabajo>Universidad de Salamanca</entidadTrabajo>
+        </autor>
+        <autor id="A2">
+            <nombre>Lucía</nombre>
+            <apellido1>Alcántara</apellido1>
+            <apellido2>Gómez</apellido2>
+            <puesto>Profesor asociado</puesto>
+            <entidadTrabajo>Universidad de Valladolid</entidadTrabajo>
+        </autor>
+        <autor id="A3">
+            <nombre>Julia</nombre>
+            <apellido1>Hernández</apellido1>
+            <apellido2>Sánchez</apellido2>
+            <puesto>Profesor titular</puesto>
+            <entidadTrabajo>Universidad de Salamanca</entidadTrabajo>
+        </autor>
+        <autor id="A4">
+            <nombre>Alfonso</nombre>
+            <apellido1>García</apellido1>
+            <apellido2>Muñiz</apellido2>
+            <puesto>Profesor Asociado</puesto>
+            <entidadTrabajo>Universidad de Valladolid</entidadTrabajo>
+        </autor>
+    </autores>
+    <preguntas>
+        <pregunta autoria="A1" dificultad="baja">
+            <enunciado>Indique qué definición de XML es correcta</enunciado>
+            <respuesta validez="no">Es un lenguaje de programación</respuesta>
+            <respuesta validez="si">Es un metalenguaje de etiquetado</respuesta>
+            <respuesta validez="no">Es un procesaro de texto</respuesta>
+            <respuesta validez="no">Es un tipo de base de datos</respuesta>
+        </pregunta>
+        <pregunta autoria="A1" dificultad="media">
+            <enunciado>Para definir un atributo optativo en un DTD se usa:</enunciado>
+            <respuesta validez="no">REQUIRED</respuesta>
+            <respuesta validez="si">IMPLIED</respuesta>
+            <respuesta validez="no">FIXED</respuesta>
+            <respuesta validez="no">No se puede definir un atributo como optativo</respuesta>
+        </pregunta>
+        <pregunta autoria="A2" dificultad="alta">
+            <enunciado>Los procesadores SAX y DOM son independientes del lenguaje de programación y existen versiones para Java, VisualBasic, C...</enunciado>
+            <respuesta validez="si">Verdadero</respuesta>
+            <respuesta validez="no">Falso</respuesta>
+        </pregunta>
+        <pregunta autoria="A2" dificultad="alta">
+            <enunciado>Una sentencia try no puede estar dentro de un bloque de otra sentencia try</enunciado>
+            <respuesta validez="no">Verdadero</respuesta>
+            <respuesta validez="si">Falso</respuesta>
+        </pregunta>
+    </preguntas>
+</examen>
