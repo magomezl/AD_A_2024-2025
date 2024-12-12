@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,6 +11,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import clasesHibernate.Departamentos;
+import clasesHibernate.Empleados;
 import jakarta.persistence.TypedQuery;
 
 public class Modelo {
@@ -40,9 +42,10 @@ public class Modelo {
 //		System.out.println(listarDptos(45));
 		
 	//	borrarDpto("Personal");
-		borrarDpto(40);
+//		borrarDpto(40);
 		
 		//System.out.println(modificadDpto(40, null, "Zamora")?"Dpto modificado con éxito":"Dpto NO modificado");
+		anadirEmpleado("Rosaura", "García", "García", "Vigilancia");
 
 	}
 	/**
@@ -149,7 +152,7 @@ public class Modelo {
 		Session sesion = sf.openSession();
 		Transaction t = sesion.beginTransaction();
 		Departamentos dpto = sesion.get(Departamentos.class, dptoId);
-		System.out.println("¿Desea elimninar el departamento " + dpto.getDnombre() + " situado en " + dpto.getLoc() + "? (S/N):" );
+		System.out.println("¿Desea elimninar el departamento " + dpto.getDnombre() + " situado en " + dpto.getLoc() + "? (S/N): " );
 		if (sn.next().toLowerCase().equals("s")) {
 			sesion.remove(dpto);
 			System.out.println("Departamento eliminado con éxito");
@@ -171,12 +174,35 @@ public class Modelo {
 	 * @param nombre
 	 * @param apellido1
 	 * @param apellido2
-	 * @param dpto
+	 * @param dptoName
 	 * @return
 	 */
 	
-	private static boolean anadirEmpleado(String nombre, String apellido1, String apellido2, String dpto) {
-		
+	private static boolean anadirEmpleado(String nombre, String apellido1, String apellido2, String dptoName) {
+		Scanner sn = new Scanner(System.in);
+		ArrayList<Departamentos> dptos = listarDptosNombre(dptoName);
+		Session sesion = sf.openSession();
+		Transaction t = sesion.beginTransaction();
+		if (dptos.size()==0) {
+			//El departamento no existe
+			System.out.println("¿Desea incluir el departamento " + dptoName +  " en la base de datos? (S/N): ");
+			String localidad =null;
+			if (sn.next().toLowerCase().equals("s")) {
+				System.out.println("Localidad: ");
+				localidad = sn.next();
+				Departamentos dpto = new Departamentos(dptoName, localidad, null);
+				Integer idGenerado = (Integer) sesion.save(dpto);
+				Empleados emp = new Empleados(sesion.get(Departamentos.class, idGenerado), nombre, apellido1, apellido2);
+				sesion.persist(emp);
+				t.commit();
+				sesion.close();
+			}
+		}else if (dptos.size()==1) {
+			//
+		}else {
+			
+		}
+		return false;
 	}
 	
 	
