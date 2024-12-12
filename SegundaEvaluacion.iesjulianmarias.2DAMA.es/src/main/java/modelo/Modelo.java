@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -25,21 +26,23 @@ public class Modelo {
 		for(Departamentos dpto: dptos) {
 			System.out.println(dpto);
 		}
-		System.out.println("MUESTRO LOS DE PAMPLONA");
-		dptos = listarDptos("Pamplona");
-		for(Departamentos dpto: dptos) {
-			System.out.println(dpto);
-		}
+//		System.out.println("MUESTRO LOS DE PAMPLONA");
+//		dptos = listarDptos("Pamplona");
+//		for(Departamentos dpto: dptos) {
+//			System.out.println(dpto);
+//		}
 		System.out.println("MUESTRO LOS DE PERSONAL");
 		dptos = listarDptosNombre("Personal");
 		for(Departamentos dpto: dptos) {
 			System.out.println(dpto);
 		}
-		System.out.println("MUESTRO EL 45");
-		System.out.println(listarDptos(45));
+//		System.out.println("MUESTRO EL 45");
+//		System.out.println(listarDptos(45));
 		
+	//	borrarDpto("Personal");
+		borrarDpto(40);
 		
-		System.out.println(modificadDpto(40, null, "Zamora")?"Dpto modificado con éxito":"Dpto NO modificado");
+		//System.out.println(modificadDpto(40, null, "Zamora")?"Dpto modificado con éxito":"Dpto NO modificado");
 
 	}
 	/**
@@ -116,7 +119,68 @@ public class Modelo {
 		sesion.close();
 	}
 	
-	
+	private static boolean borrarDpto(String dptoNombre) {
+		Scanner sc = new Scanner(System.in);
+		boolean flag= false;
+		Session sesion = sf.openSession();
+		Transaction t = sesion.beginTransaction();
+		String hql = "from Departamentos where dnombre='" + dptoNombre +"'";
+		TypedQuery<Departamentos> consulta =  sesion.createQuery(hql, Departamentos.class);
+		ArrayList<Departamentos> dptos = (ArrayList<Departamentos>) consulta.getResultList();
+		System.out.println("Hay " + dptos.size() + " departamentos de " +  dptoNombre);
+		for (Departamentos dpto: dptos) {
+			System.out.println("¿Desea elimninar el departamento " + dpto.getDnombre() + " situado en " + dpto.getLoc() + "? (S/N):" );
+			if (sc.next().toLowerCase().equals("s")) {
+				sesion.remove(dpto);
+				System.out.println("Departamento eliminado con éxito");
+				flag = true;
+			}
+		}
+		t.commit();
+		sesion.close();
+		sc.close();
+		return flag;
+	}
 	
 
+	private static boolean borrarDpto(int dptoId) {
+		Scanner sn = new Scanner(System.in);
+		boolean flag= false;
+		Session sesion = sf.openSession();
+		Transaction t = sesion.beginTransaction();
+		Departamentos dpto = sesion.get(Departamentos.class, dptoId);
+		System.out.println("¿Desea elimninar el departamento " + dpto.getDnombre() + " situado en " + dpto.getLoc() + "? (S/N):" );
+		if (sn.next().toLowerCase().equals("s")) {
+			sesion.remove(dpto);
+			System.out.println("Departamento eliminado con éxito");
+			flag = true;
+		}
+		t.commit();
+		sesion.close();
+		sn.close();
+		return flag;
+	}
+
+	/**
+	 * dpto puede corresponderse con varios. Preguntar cuál mostrando los dptos con ese nombre
+	 * dpto no existe. Confirmar que es correcto, si lo es, lo añadimos preguntando la localidad
+	 * 
+	 * Añadir el empleado al dpto. 
+	 * 
+	 * 
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param dpto
+	 * @return
+	 */
+	
+	private static boolean anadirEmpleado(String nombre, String apellido1, String apellido2, String dpto) {
+		
+	}
+	
+	
+		
+		
+	
 }
