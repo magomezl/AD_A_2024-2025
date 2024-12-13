@@ -10,8 +10,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+
 import clasesHibernate.Departamentos;
 import clasesHibernate.Empleados;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 
 public class Modelo {
@@ -23,21 +25,21 @@ public class Modelo {
 	
 	public static void main(String[] args) {
 		//anadirDpto("Personal", "Zamora");
-		System.out.println("MUESTRO TODOS");
-		ArrayList<Departamentos> dptos = listarDptos();
-		for(Departamentos dpto: dptos) {
-			System.out.println(dpto);
-		}
+//		System.out.println("MUESTRO TODOS");
+//		ArrayList<Departamentos> dptos = listarDptos();
+//		for(Departamentos dpto: dptos) {
+//			System.out.println(dpto);
+//		}
 //		System.out.println("MUESTRO LOS DE PAMPLONA");
 //		dptos = listarDptos("Pamplona");
 //		for(Departamentos dpto: dptos) {
 //			System.out.println(dpto);
 //		}
-		System.out.println("MUESTRO LOS DE PERSONAL");
-		dptos = listarDptosNombre("Personal");
-		for(Departamentos dpto: dptos) {
-			System.out.println(dpto);
-		}
+//		System.out.println("MUESTRO LOS DE PERSONAL");
+//		dptos = listarDptosNombre("Personal");
+//		for(Departamentos dpto: dptos) {
+//			System.out.println(dpto);
+//		}
 //		System.out.println("MUESTRO EL 45");
 //		System.out.println(listarDptos(45));
 		
@@ -45,9 +47,94 @@ public class Modelo {
 //		borrarDpto(40);
 		
 		//System.out.println(modificadDpto(40, null, "Zamora")?"Dpto modificado con éxito":"Dpto NO modificado");
-		anadirEmpleado("Rosaura", "García", "García", "Vigilancia");
-
+		anadirEmpleado("Almudena", "Alonso", "Gil", "Control");
+		
+		System.out.println("Id del empleado Rosa Gil Gil " + buscarEmpleados("Rosa", "Gil", "Gil"));
+		
+		System.out.println("Empleados de todos los departamentos");
+		ArrayList<Empleados> empleados = buscarEmpleados();
+		for(Empleados emp: empleados) {
+			System.out.println(emp);
+		}
+		
+		System.out.println("\n\nEmpleados del departamento Control");
+		ArrayList<Empleados> empleados2 = buscarEmpleados("Control");
+		for(Empleados emp: empleados) {
+			System.out.println(emp);
+		}
+		
+		
 	}
+	
+	
+	/**
+	 * dpto puede corresponderse con varios. Preguntar cuál mostrando los dptos con ese nombre
+	 * dpto no existe. Confirmar que es correcto, si lo es, lo añadimos preguntando la localidad
+	 * 
+	 * Añadir el empleado al dpto. 
+	 * 
+	 * 
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param dptoName
+	 * @return
+	 */
+	
+	private static boolean anadirEmpleado(String nombre, String apellido1, String apellido2, String dptoName) {
+		Scanner sn = new Scanner(System.in);
+		ArrayList<Departamentos> dptos = listarDptosNombre(dptoName);
+		boolean flag = false;
+		Departamentos dpto = null;
+		Empleados emp = null;
+		Session sesion = sf.openSession();
+		Transaction t = sesion.beginTransaction();
+		if (buscarEmpleados(nombre, apellido1, apellido2)!=0) {
+			System.out.println("El empleado ya existe en la db");
+			return false; 
+		}else {
+			if (dptos.size()==0) {
+				//El departamento no existe
+				System.out.println("¿Desea incluir el departamento " + dptoName +  " en la base de datos? (S/N): ");
+				String localidad =null;
+				if (sn.next().toLowerCase().equals("s")) {
+					System.out.println("Localidad: ");
+					localidad = sn.next();
+					dpto = new Departamentos(dptoName, localidad, null);
+					sesion.persist(dpto);
+					Integer idGenerado = (Integer) sesion.getIdentifier(dpto);
+					//Integer idGenerado = (Integer) sesion.save(dpto);
+
+					// TODO Aquí no --> Hacer comprobación de que el empleado no existe ya en la db. Posibilidad de rollback
+					emp = new Empleados(sesion.get(Departamentos.class, idGenerado), nombre, apellido1, apellido2);
+					flag = true;
+				}
+			}else if (dptos.size()==1) {
+				dpto = dptos.get(0);
+				emp = new Empleados(dpto, nombre, apellido1, apellido2);
+				flag = true;
+			}else {
+				int i = 1;
+				for(Departamentos dep: dptos) {
+					System.out.println(i++ + ".-" + dep );
+				}
+				System.out.println("¿En cuál de los siguientes departamentos desea incorporar al empleado? (Indique número):");
+				int opcion = sn.nextInt();
+				if (opcion>=1 && opcion<=dptos.size()) {
+					emp = new Empleados(sesion.get(Departamentos.class, opcion-1), nombre, apellido1, apellido2);
+					flag = true;
+				}
+			}
+			if (emp!=null) {
+				sesion.persist(emp);
+				t.commit();
+			}
+		}
+		sesion.close();
+		return flag;
+	}
+	
+	
 	/**
 	 * 
 	 * @param id
@@ -164,49 +251,69 @@ public class Modelo {
 		return flag;
 	}
 
+	
+	
+	
+	// *Cambiar empleado de dpto 
+	// *Eliminar empleado. Comprobar que el dpto no tiene más empleados, si es así se da la opción de borrar el dpto
+	// *Listar Empleados con nombre de departamento. Sobrecargar método para que al pasar nombre de dpto
+	//    se muestren empleados del mismo 
+		
 	/**
-	 * dpto puede corresponderse con varios. Preguntar cuál mostrando los dptos con ese nombre
-	 * dpto no existe. Confirmar que es correcto, si lo es, lo añadimos preguntando la localidad
-	 * 
-	 * Añadir el empleado al dpto. 
-	 * 
-	 * 
+	 * Localiza un empleado en la db y retorna su id, 0 si no existe
 	 * @param nombre
 	 * @param apellido1
 	 * @param apellido2
-	 * @param dptoName
+	 * @return
+	 */
+	private static int buscarEmpleados(String nombre, String apellido1, String apellido2) {
+		int valorRetornado = 0;
+		Session sesion = sf.openSession();
+		String hql = "from Empleados where nombre = '" + nombre + "' and  apellido1 = '" + 
+				apellido1 + "' and apellido2 = '" + apellido2 +"'";
+		TypedQuery<Empleados> consulta =  sesion.createQuery(hql, Empleados.class);
+		ArrayList<Empleados> empleados = (ArrayList<Empleados>) consulta.getResultList();
+		if ( empleados.size()>0) {
+				Empleados emp = empleados.get(0);
+				valorRetornado = emp.getId();
+		}
+		sesion.close();
+		return valorRetornado;
+	}
+	
+	/**
+	 * Devuelve todos los empleados de la db
 	 * @return
 	 */
 	
-	private static boolean anadirEmpleado(String nombre, String apellido1, String apellido2, String dptoName) {
-		Scanner sn = new Scanner(System.in);
-		ArrayList<Departamentos> dptos = listarDptosNombre(dptoName);
+	private static ArrayList<Empleados> buscarEmpleados() {
+		ArrayList<Empleados> valorRetornado = null;
 		Session sesion = sf.openSession();
-		Transaction t = sesion.beginTransaction();
-		if (dptos.size()==0) {
-			//El departamento no existe
-			System.out.println("¿Desea incluir el departamento " + dptoName +  " en la base de datos? (S/N): ");
-			String localidad =null;
-			if (sn.next().toLowerCase().equals("s")) {
-				System.out.println("Localidad: ");
-				localidad = sn.next();
-				Departamentos dpto = new Departamentos(dptoName, localidad, null);
-				Integer idGenerado = (Integer) sesion.save(dpto);
-				Empleados emp = new Empleados(sesion.get(Departamentos.class, idGenerado), nombre, apellido1, apellido2);
-				sesion.persist(emp);
-				t.commit();
-				sesion.close();
-			}
-		}else if (dptos.size()==1) {
-			//
-		}else {
-			
-		}
-		return false;
+		String hql = "from Empleados"; 
+		TypedQuery<Empleados> consulta =  sesion.createQuery(hql, Empleados.class);
+		valorRetornado = (ArrayList<Empleados>) consulta.getResultList();
+		return valorRetornado;
 	}
 	
+	/**
+	 * Devuelve los empleados del departamento que se pasa como parámetro
+	 * @param dpto
+	 * @return
+	 */
+	private static ArrayList<Empleados> buscarEmpleados(String dpto) {
+		
+		//TODO revisar consulta
+		ArrayList<Empleados> valorRetornado = null;
+		Session sesion = sf.openSession();
+		String hql = "from Empleados where departamentos.dnombre='" + dpto + "'"; 
+		TypedQuery<Empleados> consulta =  sesion.createQuery(hql, Empleados.class);
+		valorRetornado = (ArrayList<Empleados>) consulta.getResultList();
+		return valorRetornado;
+	}
 	
+	private static boolean modificarEmpleado(String nombre, String apellido1, String apellido2, String dptoNameNew) {	
 		
-		
+		return false;
+	}
 	
 }

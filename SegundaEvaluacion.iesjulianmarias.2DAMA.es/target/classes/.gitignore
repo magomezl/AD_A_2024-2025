@@ -1,5 +1,2 @@
-/META-INF/
-/clasesHibernate/
-/hibernate.cfg.xml
-/hibernate.reveng.xml
 /modelo/
+/clasesHibernate/
