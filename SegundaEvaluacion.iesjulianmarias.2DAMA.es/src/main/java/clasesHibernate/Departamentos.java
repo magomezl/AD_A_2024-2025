@@ -17,6 +17,15 @@ public class Departamentos implements java.io.Serializable {
 	public Departamentos() {
 	}
 
+	
+	
+	public Departamentos(String dnombre, String loc) {
+		this.dnombre = dnombre;
+		this.loc = loc;
+	}
+
+
+
 	public Departamentos(String dnombre, String loc, Set empleadoses) {
 		this.dnombre = dnombre;
 		this.loc = loc;

@@ -1,9 +1,12 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+
 import java.util.List;
 import java.util.Scanner;
+
+
+import javax.swing.JOptionPane;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,307 +16,378 @@ import org.hibernate.cfg.Configuration;
 
 import clasesHibernate.Departamentos;
 import clasesHibernate.Empleados;
-import jakarta.persistence.Query;
-import jakarta.persistence.TypedQuery;
+import jakarta.persistence.NoResultException;
+
 
 public class Modelo {
+	
 	private static final Configuration cfg = new Configuration().configure();
 	private static final SessionFactory sf = cfg.buildSessionFactory();
+	//Elimino la propiedad sesion para tener más control sobre las sesiones que abro
+	//private static Session sesion;
 	
-		
 	
 	
 	public static void main(String[] args) {
-		//anadirDpto("Personal", "Zamora");
-//		System.out.println("MUESTRO TODOS");
-//		ArrayList<Departamentos> dptos = listarDptos();
+		
+//		borrarDpto(1);
+//		modificarDpto(20, "Ventolin", "Soria");
+//		List<Departamentos> dptos = listarDptosNombre("Fisioterápia");
+//		List<Departamentos> dptos = listarDptos("Salamanca");
+//		List<Departamentos> dptos = listarDptos();
 //		for(Departamentos dpto: dptos) {
 //			System.out.println(dpto);
 //		}
-//		System.out.println("MUESTRO LOS DE PAMPLONA");
-//		dptos = listarDptos("Pamplona");
-//		for(Departamentos dpto: dptos) {
-//			System.out.println(dpto);
+//		System.out.println(listarDptos(2));
+
+//		anadirDpto("Música", "Palencia");
+
+//		anadirEmpleado("Pablo", "Sanchez", "Quintana", "Mecánica");
+		
+		
+
+//		eliminarEmpleado("Alvarita", "Sanchez", "Quintana");
+
+//		ArrayList<Empleados> empleados =  listarEmpleados();
+//		ArrayList<Empleados> empleados = listarEmpleados("Mates");
+//		for(Empleados empl: empleados) {
+//			System.out.println(empl);
+//			
 //		}
-//		System.out.println("MUESTRO LOS DE PERSONAL");
-//		dptos = listarDptosNombre("Personal");
-//		for(Departamentos dpto: dptos) {
-//			System.out.println(dpto);
-//		}
-//		System.out.println("MUESTRO EL 45");
-//		System.out.println(listarDptos(45));
 		
-	//	borrarDpto("Personal");
-//		borrarDpto(40);
-		
-		//System.out.println(modificadDpto(40, null, "Zamora")?"Dpto modificado con éxito":"Dpto NO modificado");
-		anadirEmpleado("Almudena", "Alonso", "Gil", "Control");
-		
-		System.out.println("Id del empleado Rosa Gil Gil " + buscarEmpleados("Rosa", "Gil", "Gil"));
-		
-		System.out.println("Empleados de todos los departamentos");
-		ArrayList<Empleados> empleados = buscarEmpleados();
-		for(Empleados emp: empleados) {
-			System.out.println(emp);
-		}
-		
-		System.out.println("\n\nEmpleados del departamento Control");
-		ArrayList<Empleados> empleados2 = buscarEmpleados("Control");
-		for(Empleados emp: empleados) {
-			System.out.println(emp);
-		}
+		modificarEmpleado("Anselmo", "Garcia", "Nieto", "Aerobic");
+
 		
 		
 	}
 	
-	
 	/**
-	 * dpto puede corresponderse con varios. Preguntar cuál mostrando los dptos con ese nombre
-	 * dpto no existe. Confirmar que es correcto, si lo es, lo añadimos preguntando la localidad
+	 * CREATE
 	 * 
-	 * Añadir el empleado al dpto. 
-	 * 
-	 * 
+	 * Comprobar si existe un empleado con el mismo nombre y apellidos, si es así no hace nada
+	 * si no, comprobar existencia del dpto, si el departamento no existe, lo almacenamos pidiendo los datos que sean necesarios,
+	 * Pueden existir varios departamentos con el mismo nombre, los mostramos y pedimos al usuario que seleccione uno 
+	 * y se almacena el empleado en ese departamento 
+	  
 	 * @param nombre
 	 * @param apellido1
 	 * @param apellido2
-	 * @param dptoName
-	 * @return
+	 * @param dpto
 	 */
-	
-	private static boolean anadirEmpleado(String nombre, String apellido1, String apellido2, String dptoName) {
-		Scanner sn = new Scanner(System.in);
-		ArrayList<Departamentos> dptos = listarDptosNombre(dptoName);
-		boolean flag = false;
-		Departamentos dpto = null;
-		Empleados emp = null;
+	private static void anadirEmpleado(String nombre, String apellido1, String apellido2, String dpto) {
+		Scanner sc = new Scanner(System.in);
+		
+		Departamentos dptoObj;
+		Empleados empObj = null;
+
 		Session sesion = sf.openSession();
 		Transaction t = sesion.beginTransaction();
-		if (buscarEmpleados(nombre, apellido1, apellido2)!=0) {
-			System.out.println("El empleado ya existe en la db");
-			return false; 
+		if (existeEmpleado(sesion, nombre, apellido1, apellido2)!=0) {
+			sesion.close();
+			System.out.println("Ya existe el empleado");
 		}else {
-			if (dptos.size()==0) {
-				//El departamento no existe
-				System.out.println("¿Desea incluir el departamento " + dptoName +  " en la base de datos? (S/N): ");
-				String localidad =null;
-				if (sn.next().toLowerCase().equals("s")) {
-					System.out.println("Localidad: ");
-					localidad = sn.next();
-					dpto = new Departamentos(dptoName, localidad, null);
-					sesion.persist(dpto);
-					Integer idGenerado = (Integer) sesion.getIdentifier(dpto);
-					//Integer idGenerado = (Integer) sesion.save(dpto);
-
-					// TODO Aquí no --> Hacer comprobación de que el empleado no existe ya en la db. Posibilidad de rollback
-					emp = new Empleados(sesion.get(Departamentos.class, idGenerado), nombre, apellido1, apellido2);
-					flag = true;
+			List<Departamentos> dptos = listarDptosNombre(sesion, dpto);
+			if (dptos.isEmpty()) {
+				System.out.println("No existe el departamento indicado, indique la localidad del mismo para incluirlo:");
+				String localidad = sc.next();
+				//Añadimos constructores a las clases generadas por Hibernate
+				dptoObj = new Departamentos(dpto, localidad);
+				sesion.persist(dptoObj);
+				empObj = new Empleados(dptoObj, nombre, apellido1, apellido2);		
+				// TODO También lo podemos hacer persistiendo un objeto Departamento
+			}else if (dptos.size()>1) {
+				//Elegir departamento
+				System.out.println("Departamentos con el nombre seleccionado:");
+				for(Departamentos dptoObjbis: dptos) {
+					System.out.println(dptoObjbis);
 				}
+				System.out.println("Indique el código del departamento al que desea añadir al empleado:");
+				String idDpto = sc.next();
+				dptoObj = sesion.get(Departamentos.class, Integer.valueOf(idDpto));
+				empObj = new Empleados(dptoObj, nombre, apellido1, apellido2);
 			}else if (dptos.size()==1) {
-				dpto = dptos.get(0);
-				emp = new Empleados(dpto, nombre, apellido1, apellido2);
-				flag = true;
-			}else {
-				int i = 1;
-				for(Departamentos dep: dptos) {
-					System.out.println(i++ + ".-" + dep );
-				}
-				System.out.println("¿En cuál de los siguientes departamentos desea incorporar al empleado? (Indique número):");
-				int opcion = sn.nextInt();
-				if (opcion>=1 && opcion<=dptos.size()) {
-					emp = new Empleados(sesion.get(Departamentos.class, opcion-1), nombre, apellido1, apellido2);
-					flag = true;
-				}
+				dptoObj = dptos.getFirst();
+				empObj = new Empleados(dptoObj, nombre, apellido1, apellido2);
 			}
-			if (emp!=null) {
-				sesion.persist(emp);
-				t.commit();
-			}
+			sesion.persist(empObj);
+			t.commit();
+			sesion.close();
+			sc.close();
 		}
-		sesion.close();
-		return flag;
 	}
-	
+
+	/**
+	 * UPDATE
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param dptoNew
+	 */
+	private static void modificarEmpleado(String nombre, String apellido1, String apellido2, String dptoNew) {
+		Scanner sc = new Scanner(System.in);
+		Departamentos dptoObj = null; 
+		Empleados empObj;
+		
+		Session sesion = sf.openSession();
+		Transaction t = sesion.beginTransaction();
+		Integer idEmp; 
+		if ((idEmp = existeEmpleado(sesion, nombre, apellido1, apellido2))==0) {
+			sesion.close();
+			System.out.println("No existe el empleado que pretende modificar");
+		}else {
+			List<Departamentos> dptos = listarDptosNombre(dptoNew);
+			if (dptos.isEmpty()) {
+				System.out.println("No existe el departamento indicado, indique la localidad del mismo para incluirlo:");
+				String localidad = sc.next();
+				dptoObj = new Departamentos(dptoNew, localidad);
+				sesion.persist(dptoObj);
+			}else if (dptos.size()>1) {
+				//Elegir departamento
+				System.out.println("Departamentos con el nombre seleccionado:");
+				for(Departamentos dptoObjbis: dptos) {
+					System.out.println(dptoObjbis);
+				}
+				System.out.println("Indique el código del departamento al que desea añadir al empleado:");
+				String idDpto = sc.next();
+				//Recuperamos el departamento
+				dptoObj = sesion.get(Departamentos.class, Integer.valueOf(idDpto));
+			}else if (dptos.size()==1) {
+				dptoObj = dptos.getFirst();
+			}
+			empObj = sesion.get(Empleados.class, idEmp);
+			empObj.setDepartamentos(dptoObj);
+			sesion.merge(empObj);
+			t.commit();
+			sesion.close();
+			sc.close();
+		}
+	}
 	
 	/**
-	 * 
-	 * @param id
-	 * @param nuevoNombre
-	 * @param nuevaLocalidad
-	 * @return true si he modificado el departamento, false en caso contrario
+	 * RETRIEVE
+	 * @return
 	 */
-	
-	private static Boolean modificadDpto(int id, String nuevoNombre, String nuevaLocalidad) {
-		Boolean flag = false;
+
+	private static ArrayList<Empleados> listarEmpleados() {
 		Session sesion = sf.openSession();
-		Transaction t = sesion.beginTransaction();
-		Departamentos dpto = sesion.get(Departamentos.class, id);
-		if(nuevoNombre!=null) {
-			dpto.setDnombre(nuevoNombre);
-			flag = true;
-		}
-		if (nuevaLocalidad!=null) {
-			dpto.setLoc(nuevaLocalidad);
-			flag = true;
-		}
-		sesion.merge(dpto);
-		t.commit();
+		List<Empleados> empleados = sesion.createQuery("FROM Empleados", Empleados.class)
+				.getResultList();
 		sesion.close();
-		return flag;
+		return (ArrayList<Empleados>) empleados;
 	}
 
-	private static ArrayList<Departamentos> listarDptos() {
+	private static ArrayList<Empleados> listarEmpleados(String dpto) {
 		Session sesion = sf.openSession();
-		String hql = "from Departamentos";
-		TypedQuery<Departamentos> consulta =  sesion.createQuery(hql, Departamentos.class);
-		ArrayList<Departamentos> dptos = (ArrayList<Departamentos>) consulta.getResultList();
+		List<Empleados> empleados = sesion.createQuery("from Empleados e join fetch e.departamentos where e.departamentos.dnombre = :dptoName", Empleados.class)
+				.setParameter("dptoName", dpto)
+				.getResultList();
 		sesion.close();
-		return dptos;
+		return (ArrayList<Empleados>) empleados;
 	}
-	
-	private static ArrayList<Departamentos> listarDptos(String localidad) {
-		Session sesion = sf.openSession();
-		String hql = "from Departamentos where loc='" + localidad +"'";
-		TypedQuery<Departamentos> consulta =  sesion.createQuery(hql, Departamentos.class);
-		ArrayList<Departamentos> dptos = (ArrayList<Departamentos>) consulta.getResultList();
-		sesion.close();
-		return dptos;
+	/**
+	 * Recibe sesión del método anfitrión
+	 * @param sesion
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @return
+	 */
+	private static ArrayList<Empleados> listarEmpleados(Session sesion, String nombre, String apellido1, String apellido2) {
+		String hql = "FROM Empleados e WHERE e.nombre = :nombre AND e.apellido1 = :apellido1 AND "
+				+ "e.apellido2 = :apellido2";
+		List<Empleados> empleados = sesion.createQuery(hql, Empleados.class)
+				.setParameter("nombre", nombre)
+				.setParameter("apellido1", apellido1)
+				.setParameter("apellido2", apellido2)
+				.getResultList();
+		return (ArrayList<Empleados>) empleados;
 	}
+		
 	
-	private static Departamentos listarDptos(int dptoId) {
-		Session sesion = sf.openSession();
-		String hql = "from Departamentos where deptNo=" + dptoId ;
-		TypedQuery<Departamentos> consulta =  sesion.createQuery(hql, Departamentos.class);
-		Departamentos dpto =consulta.getSingleResult();
-		sesion.close();
-		return dpto;
-	}
-	
-	private static ArrayList<Departamentos> listarDptosNombre(String nombre) {
-		Session sesion = sf.openSession();
-		String hql = "from Departamentos where dnombre='" + nombre +"'";
-		TypedQuery<Departamentos> consulta =  sesion.createQuery(hql, Departamentos.class);
-		ArrayList<Departamentos> dptos = (ArrayList<Departamentos>) consulta.getResultList();
-		sesion.close();
-		return dptos;
-	}
-	
-	
+	/**
+	 * Comprueba si el empleado existe en la db. Si es así devuelve su id. Si no, devuelve 0
+	 * @param sesion: se pasa la sesion del método pricipal. No se puede abrir una sesion dentro de otra.
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @return 0 si no existe en empleado en la db, su id si existe.
+	 */
+	private static Integer existeEmpleado(Session sesion, String nombre, String apellido1, String apellido2) {
 
-	private static void anadirDpto(String dptoNombre, String dptoLocalidad) {
+		try {
+			Empleados emp = null;
+			emp = sesion.createQuery("from Empleados where nombre= :nombre and "
+					+ " apellido1= :apellido1 and apellido2 = :apellido2", Empleados.class)
+					.setParameter("nombre", nombre)
+					.setParameter("apellido1", apellido1)
+					.setParameter("apellido2", apellido2)
+					.getResultList()
+					.get(0);
+			int id = emp.getId();
+			return id;
+		}catch (IndexOutOfBoundsException e) {
+			return 0;
+		}
+	}
+
+	/**
+	 * DELETE
+	 * 
+	 * Elimina el empleado y si el departamento al que pertenecía queda vacío pregunta si se desea eliminar
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 */
+	private static void eliminarEmpleado(String nombre, String apellido1, String apellido2) {
+		Scanner sc = new Scanner(System.in);
 		Session sesion = sf.openSession();
 		Transaction t = sesion.beginTransaction();
-		Departamentos dpto = new Departamentos(dptoNombre, dptoLocalidad, null);
+		
+		List<Empleados> empleados = listarEmpleados(sesion, nombre, apellido1, apellido2); 
+		
+		if (empleados.isEmpty()) {
+			System.out.println("No existe el empleado que desea borrar");
+			
+		}else {
+			Departamentos dptoEmpleado = empleados.get(0).getDepartamentos();
+			Long empleadosDpto = (Long) sesion.createQuery("SELECT count(e) FROM Empleados e WHERE e.departamentos = :dpto", Long.class)
+					.setParameter("dpto", dptoEmpleado)
+					.getSingleResult();
+			if (empleadosDpto==1) {
+				System.out.println("El departamento " +  dptoEmpleado.getDnombre() + " no tiene más empleados.");
+                System.out.print("¿Quieres eliminar ese departamento? (S/N): ");
+                sc = new Scanner(System.in);
+                String respuesta = sc.nextLine().trim().toLowerCase();
+                if (respuesta.equals("s")) {
+                	sesion.remove(dptoEmpleado);
+                }
+			}
+			sesion.remove(empleados.getFirst());
+			t.commit();
+			sesion.close();
+		}
+	}
+
+	
+	/******************************************
+	 * CRUD DEPARTAMENTOS
+	 */
+
+	/**
+	 * CREATE
+	 * @param nombre
+	 * @param localidad
+	 */
+	private static void anadirDpto(String nombre, String localidad) {
+		Session sesion = sf.openSession();
+		Transaction t = sesion.beginTransaction();
+		Departamentos dpto = new Departamentos(nombre, localidad, null);
 		sesion.persist(dpto);
 		t.commit();
 		sesion.close();
 	}
 	
-	private static boolean borrarDpto(String dptoNombre) {
-		Scanner sc = new Scanner(System.in);
-		boolean flag= false;
+	/**
+	 * RETRIEVE
+	 * Para consultar no necesitamos comenzar una transacción
+	 * @return
+	 */
+	private static List<Departamentos> listarDptos() {
+		Session sesion = sf.openSession();
+		List<Departamentos> dptos = sesion.createQuery("from Departamentos", Departamentos.class)
+			.getResultList();
+		sesion.close();
+		return dptos;
+	}
+	
+	private static Departamentos listarDptos(int dptoNum) {
+		Session sesion = sf.openSession();
+		Departamentos dptoObj = null;
+		try {
+			dptoObj= sesion.createQuery("from Departamentos where deptNo= :dpto", Departamentos.class)
+					.setParameter("dpto", dptoNum)
+					.getSingleResult();
+		}catch (NoResultException e) {} 
+		sesion.close();
+		return dptoObj;
+	}
+	
+	private static List<Departamentos> listarDptos(String localidad) {
+		Session sesion = sf.openSession();
+		List<Departamentos> dptos =  sesion.createQuery("from Departamentos where loc='" + localidad + "'", Departamentos.class)
+				.getResultList();
+		sesion.close();
+		return dptos;
+	}
+	
+	private static List<Departamentos> listarDptosNombre(String nombre) {
+		Session sesion = sf.openSession();
+		List<Departamentos> dptos =  sesion.createQuery("from Departamentos where dnombre='" + nombre + "'", Departamentos.class)
+				.getResultList();
+		sesion.close();
+		return dptos; 
+	}
+
+	/**
+	 * Método que devuelve los departamentos con un determinado nombre y utiliza la sesion del método anfitrion
+	 * @param sesion
+	 * @param nombre
+	 * @return
+	 */
+	private static List<Departamentos> listarDptosNombre(Session sesion, String nombre) {
+		List<Departamentos> dptos =  sesion.createQuery("from Departamentos where dnombre='" + nombre + "'", Departamentos.class)
+				.getResultList();
+		return dptos; 
+	}
+
+	
+	/**
+	 * UPDATE
+	 * @param idDpto
+	 * @param nombreNew
+	 * @param localidadNew
+	 */
+	private static boolean modificarDpto(int idDpto, String nombreNew, String localidadNew) {
+		boolean flag = false;
 		Session sesion = sf.openSession();
 		Transaction t = sesion.beginTransaction();
-		String hql = "from Departamentos where dnombre='" + dptoNombre +"'";
-		TypedQuery<Departamentos> consulta =  sesion.createQuery(hql, Departamentos.class);
-		ArrayList<Departamentos> dptos = (ArrayList<Departamentos>) consulta.getResultList();
-		System.out.println("Hay " + dptos.size() + " departamentos de " +  dptoNombre);
-		for (Departamentos dpto: dptos) {
-			System.out.println("¿Desea elimninar el departamento " + dpto.getDnombre() + " situado en " + dpto.getLoc() + "? (S/N):" );
-			if (sc.next().toLowerCase().equals("s")) {
-				sesion.remove(dpto);
-				System.out.println("Departamento eliminado con éxito");
+		Departamentos dpto = sesion.get(Departamentos.class, idDpto);
+		if (dpto!=null) {
+			if (nombreNew!=null) {
+				dpto.setDnombre(nombreNew);
 				flag = true;
 			}
+			if (localidadNew!=null) {
+				dpto.setLoc(localidadNew);
+				flag = true;
+			}
+			sesion.merge(dpto);
+			t.commit();
 		}
-		t.commit();
 		sesion.close();
-		sc.close();
 		return flag;
 	}
 	
-
-	private static boolean borrarDpto(int dptoId) {
-		Scanner sn = new Scanner(System.in);
-		boolean flag= false;
+	/**
+	 * DELETE
+	 * @param dptoNum
+	 * @return
+	 */
+	private static boolean borrarDpto(int dptoNum) {
 		Session sesion = sf.openSession();
 		Transaction t = sesion.beginTransaction();
-		Departamentos dpto = sesion.get(Departamentos.class, dptoId);
-		System.out.println("¿Desea elimninar el departamento " + dpto.getDnombre() + " situado en " + dpto.getLoc() + "? (S/N): " );
-		if (sn.next().toLowerCase().equals("s")) {
-			sesion.remove(dpto);
-			System.out.println("Departamento eliminado con éxito");
-			flag = true;
-		}
-		t.commit();
-		sesion.close();
-		sn.close();
-		return flag;
-	}
-
-	
-	
-	
-	// *Cambiar empleado de dpto 
-	// *Eliminar empleado. Comprobar que el dpto no tiene más empleados, si es así se da la opción de borrar el dpto
-	// *Listar Empleados con nombre de departamento. Sobrecargar método para que al pasar nombre de dpto
-	//    se muestren empleados del mismo 
-		
-	/**
-	 * Localiza un empleado en la db y retorna su id, 0 si no existe
-	 * @param nombre
-	 * @param apellido1
-	 * @param apellido2
-	 * @return
-	 */
-	private static int buscarEmpleados(String nombre, String apellido1, String apellido2) {
-		int valorRetornado = 0;
-		Session sesion = sf.openSession();
-		String hql = "from Empleados where nombre = '" + nombre + "' and  apellido1 = '" + 
-				apellido1 + "' and apellido2 = '" + apellido2 +"'";
-		TypedQuery<Empleados> consulta =  sesion.createQuery(hql, Empleados.class);
-		ArrayList<Empleados> empleados = (ArrayList<Empleados>) consulta.getResultList();
-		if ( empleados.size()>0) {
-				Empleados emp = empleados.get(0);
-				valorRetornado = emp.getId();
+		Departamentos dpto = sesion.get(Departamentos.class, dptoNum);
+		if (dpto!=null) {
+			if (JOptionPane.showConfirmDialog(null,"¿Esta seguro de querer eliminar el dpto " + dpto.getDnombre() + "?")==JOptionPane.YES_OPTION) {
+				sesion.remove(dpto);
+				t.commit();
+				sesion.close();
+				return true;
+			}
 		}
 		sesion.close();
-		return valorRetornado;
-	}
-	
-	/**
-	 * Devuelve todos los empleados de la db
-	 * @return
-	 */
-	
-	private static ArrayList<Empleados> buscarEmpleados() {
-		ArrayList<Empleados> valorRetornado = null;
-		Session sesion = sf.openSession();
-		String hql = "from Empleados"; 
-		TypedQuery<Empleados> consulta =  sesion.createQuery(hql, Empleados.class);
-		valorRetornado = (ArrayList<Empleados>) consulta.getResultList();
-		return valorRetornado;
-	}
-	
-	/**
-	 * Devuelve los empleados del departamento que se pasa como parámetro
-	 * @param dpto
-	 * @return
-	 */
-	private static ArrayList<Empleados> buscarEmpleados(String dpto) {
-		
-		//TODO revisar consulta
-		ArrayList<Empleados> valorRetornado = null;
-		Session sesion = sf.openSession();
-		String hql = "from Empleados where departamentos.dnombre='" + dpto + "'"; 
-		TypedQuery<Empleados> consulta =  sesion.createQuery(hql, Empleados.class);
-		valorRetornado = (ArrayList<Empleados>) consulta.getResultList();
-		return valorRetornado;
-	}
-	
-	private static boolean modificarEmpleado(String nombre, String apellido1, String apellido2, String dptoNameNew) {	
-		
 		return false;
 	}
 	
+
 }
