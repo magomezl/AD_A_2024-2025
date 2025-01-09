@@ -26,9 +26,9 @@ public class Modelo {
 	
 			conexionLocal();
 //			conexionRemota();
-			ArrayList<String> personajes = new ArrayList<String>(Arrays.asList("Personaje1", "Personaje2"));
+			ArrayList<String> personajes = new ArrayList<String>(Arrays.asList("Personaje1S", "Personaje2S"));
 			
-			anadirLibro("VVVVVVV", "novela", "Milan Kundera", "Checo", 1946, personajes);
+			anadirLibro("LibroDesconocido", "novelaS", "Milan KunderaS", "ChecoS", 1946, personajes);
 			cliente.close();
 
 	}
@@ -38,7 +38,14 @@ public class Modelo {
 		Document doc = new Document()
 				.append("titulo", titulo)
 				.append("genero", genero)
-				.append("autor", nombreAutor);
+				.append("autor", 
+						new Document()
+							.append("nombre", nombreAutor)
+							.append("nacionalidad", nacionalidadAutor)
+							.append("nacimiento", nacimientoAutor))
+				.append("personajes", personajes);
+				
+			System.out.println("Hola");			
 		db.getCollection("libros").insertOne(doc);
 	}
 
