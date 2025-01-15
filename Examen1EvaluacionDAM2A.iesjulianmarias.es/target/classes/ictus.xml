@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ictus totalCasos="20091">
+    <periodo anio="2019" totalCasos="179">
+        <edad maxima="9" minima="0" totalCasos="0">
+            <hombres>0</hombres>
+            <mujeres>0</mujeres>
+        </edad>
+        <edad maxima="19" minima="10" totalCasos="1">
+            <hombres>1</hombres>
+            <mujeres>0</mujeres>
+        </edad>
+        <edad maxima="29" minima="20" totalCasos="1">
+            <hombres>0</hombres>
+            <mujeres>1</mujeres>
+        </edad>
+        <edad maxima="39" minima="30" totalCasos="1">
+            <hombres>0</hombres>
+            <mujeres>1</mujeres>
+        </edad>
+        <edad maxima="49" minima="40" totalCasos="4">
+            <hombres>2</hombres>
+            <mujeres>2</mujeres>
+        </edad>
+        <edad maxima="59" minima="50" totalCasos="16">
+            <hombres>7</hombres>
+            <mujeres>9</mujeres>
+        </edad>
+        <edad maxima="69" minima="60" totalCasos="24">
+            <hombres>12</hombres>
+            <mujeres>12</mujeres>
+        </edad>
+        <edad maxima="79" minima="70" totalCasos="38">
+            <hombres>24</hombres>
+            <mujeres>14</mujeres>
+        </edad>
+        <edad maxima="89" minima="80" totalCasos="74">
+            <hombres>32</hombres>
+            <mujeres>42</mujeres>
+        </edad>
+        <edad maxima="99" minima="90" totalCasos="19">
+            <hombres>9</hombres>
+            <mujeres>10</mujeres>
+        </edad>
+        <edad maxima="150" minima="100" totalCasos="1">
+            <hombres>0</hombres>
+            <mujeres>1</mujeres>
+        </edad>
+    </periodo>
+    <periodo anio="2020" totalCasos="4677">
+        <edad maxima="9" minima="0" totalCasos="3">
+            <hombres>2</hombres>
+            <mujeres>1</mujeres>
+        </edad>
+        <edad maxima="19" minima="10" totalCasos="6">
+            <hombres>3</hombres>
+            <mujeres>3</mujeres>
+        </edad>
+        <edad maxima="29" minima="20" totalCasos="16">
+            <hombres>6</hombres>
+            <mujeres>10</mujeres>
+        </edad>
+        <edad maxima="39" minima="30" totalCasos="35">
+            <hombres>15</hombres>
+            <mujeres>20</mujeres>
+        </edad>
+        <edad maxima="49" minima="40" totalCasos="149">
+            <hombres>92</hombres>
+            <mujeres>57</mujeres>
+        </edad>
+        <edad maxima="59" minima="50" totalCasos="392">
+            <hombres>277</hombres>
+            <mujeres>115</mujeres>
+        </edad>
+        <edad maxima="69" minima="60" totalCasos="738">
+            <hombres>523</hombres>
+            <mujeres>215</mujeres>
+        </edad>
+        <edad maxima="79" minima="70" totalCasos="1243">
+            <hombres>751</hombres>
+            <mujeres>492</mujeres>
+        </edad>
+        <edad maxima="89" minima="80" totalCasos="1540">
+            <hombres>710</hombres>
+            <mujeres>830</mujeres>
+        </edad>
+        <edad maxima="99" minima="90" totalCasos="547">
+            <hombres>199</hombres>
+            <mujeres>348</mujeres>
+        </edad>
+        <edad maxima="150" minima="100" totalCasos="8">
+            <hombres>1</hombres>
+            <mujeres>7</mujeres>
+        </edad>
+    </periodo>
+    <periodo anio="2021" totalCasos="5086">
+        <edad maxima="9" minima="0" totalCasos="1">
+            <hombres>0</hombres>
+            <mujeres>1</mujeres>
+        </edad>
+        <edad maxima="19" minima="10" totalCasos="2">
+            <hombres>2</hombres>
+            <mujeres>0</mujeres>
+        </edad>
+        <edad maxima="29" minima="20" totalCasos="6">
+            <hombres>0</hombres>
+            <mujeres>6</mujeres>
+        </edad>
+        <edad maxima="39" minima="30" totalCasos="51">
+            <hombres>25</hombres>
+            <mujeres>26</mujeres>
+        </edad>
+        <edad maxima="49" minima="40" totalCasos="166">
+            <hombres>110</hombres>
+            <mujeres>56</mujeres>
+        </edad>
+        <edad maxima="59" minima="50" totalCasos="432">
+            <hombres>296</hombres>
+            <mujeres>136</mujeres>
+        </edad>
+        <edad maxima="69" minima="60" totalCasos="847">
+            <hombres>574</hombres>
+            <mujeres>273</mujeres>
+        </edad>
+        <edad maxima="79" minima="70" totalCasos="1314">
+            <hombres>800</hombres>
+            <mujeres>514</mujeres>
+        </edad>
+        <edad maxima="89" minima="80" totalCasos="1654">
+            <hombres>796</hombres>
+            <mujeres>858</mujeres>
+        </edad>
+        <edad maxima="99" minima="90" totalCasos="602">
+            <hombres>216</hombres>
+            <mujeres>386</mujeres>
+        </edad>
+        <edad maxima="150" minima="100" totalCasos="11">
+            <hombres>4</hombres>
+            <mujeres>7</mujeres>
+        </edad>
+    </periodo>
+    <periodo anio="2022" totalCasos="5187">
+        <edad maxima="9" minima="0" totalCasos="5">
+            <hombres>3</hombres>
+            <mujeres>2</mujeres>
+        </edad>
+        <edad maxima="19" minima="10" totalCasos="1">
+            <hombres>1</hombres>
+            <mujeres>0</mujeres>
+        </edad>
+        <edad maxima="29" minima="20" totalCasos="9">
+            <hombres>3</hombres>
+            <mujeres>6</mujeres>
+        </edad>
+        <edad maxima="39" minima="30" totalCasos="33">
+            <hombres>19</hombres>
+            <mujeres>14</mujeres>
+        </edad>
+        <edad maxima="49" minima="40" totalCasos="165">
+            <hombres>113</hombres>
+            <mujeres>52</mujeres>
+        </edad>
+        <edad maxima="59" minima="50" totalCasos="463">
+            <hombres>320</hombres>
+            <mujeres>143</mujeres>
+        </edad>
+        <edad maxima="69" minima="60" totalCasos="867">
+            <hombres>586</hombres>
+            <mujeres>281</mujeres>
+        </edad>
+        <edad maxima="79" minima="70" totalCasos="1322">
+            <hombres>823</hombres>
+            <mujeres>499</mujeres>
+        </edad>
+        <edad maxima="89" minima="80" totalCasos="1670">
+            <hombres>772</hombres>
+            <mujeres>898</mujeres>
+        </edad>
+        <edad maxima="99" minima="90" totalCasos="635">
+            <hombres>220</hombres>
+            <mujeres>415</mujeres>
+        </edad>
+        <edad maxima="150" minima="100" totalCasos="17">
+            <hombres>4</hombres>
+            <mujeres>13</mujeres>
+        </edad>
+    </periodo>
+    <periodo anio="2023" totalCasos="4962">
+        <edad maxima="9" minima="0" totalCasos="11">
+            <hombres>5</hombres>
+            <mujeres>6</mujeres>
+        </edad>
+        <edad maxima="19" minima="10" totalCasos="5">
+            <hombres>2</hombres>
+            <mujeres>3</mujeres>
+        </edad>
+        <edad maxima="29" minima="20" totalCasos="10">
+            <hombres>8</hombres>
+            <mujeres>2</mujeres>
+        </edad>
+        <edad maxima="39" minima="30" totalCasos="29">
+            <hombres>15</hombres>
+            <mujeres>14</mujeres>
+        </edad>
+        <edad maxima="49" minima="40" totalCasos="147">
+            <hombres>93</hombres>
+            <mujeres>54</mujeres>
+        </edad>
+        <edad maxima="59" minima="50" totalCasos="393">
+            <hombres>276</hombres>
+            <mujeres>117</mujeres>
+        </edad>
+        <edad maxima="69" minima="60" totalCasos="815">
+            <hombres>557</hombres>
+            <mujeres>258</mujeres>
+        </edad>
+        <edad maxima="79" minima="70" totalCasos="1274">
+            <hombres>765</hombres>
+            <mujeres>509</mujeres>
+        </edad>
+        <edad maxima="89" minima="80" totalCasos="1631">
+            <hombres>829</hombres>
+            <mujeres>802</mujeres>
+        </edad>
+        <edad maxima="99" minima="90" totalCasos="623">
+            <hombres>215</hombres>
+            <mujeres>408</mujeres>
+        </edad>
+        <edad maxima="150" minima="100" totalCasos="24">
+            <hombres>7</hombres>
+            <mujeres>17</mujeres>
+        </edad>
+    </periodo>
+</ictus>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ictus total_casos="">
+	<periodo anio="" total_casos= "">
+		<edad min="" max="" total_casos="">
+			<hombres></hombres>
+			<mujeres></mujeres>
+		</edad>
+		<edad min="" max="">
+			<hombres></hombres>
+			<mujeres></mujeres>
+		</edad>
+		<edad min="" max="">
+			<hombres></hombres>
+			<mujeres></mujeres>
+		</edad>
+		<edad min="" max="">
+			<hombres></hombres>
+			<mujeres></mujeres>
+		</edad>
+	</periodo>
+	<periodo anio="">
+		<edad min="" max="">
+			<hombres></hombres>
+			<mujeres></mujeres>
+		</edad>
+	</periodo>
+	<periodo anio="">
+		<edad min="" max="">
+			<hombres></hombres>
+			<mujeres></mujeres>
+		</edad>
+	</periodo>
+</ictus>
