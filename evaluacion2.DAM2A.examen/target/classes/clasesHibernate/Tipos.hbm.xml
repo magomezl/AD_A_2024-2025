@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 7 feb 2025 8:45:58 by Hibernate Tools 6.5.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="alojamientosruralesdb" name="clasesHibernate.Tipos" optimistic-lock="none" table="tipos">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="descripcion" type="string">
+            <column length="100" name="descripcion" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="alojamientosturismorurals" table="alojamientosturismorural">
+            <key>
+                <column name="id_tipo"/>
+            </key>
+            <one-to-many class="clasesHibernate.Alojamientosturismorural"/>
+        </set>
+    </class>
+</hibernate-mapping>

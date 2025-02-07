@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 7 feb 2025 8:45:58 by Hibernate Tools 6.5.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="alojamientosruralesdb" name="clasesHibernate.Alojamientosturismorural" optimistic-lock="none" table="alojamientosturismorural">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="clasesHibernate.Tipos" fetch="select" name="tipos">
+            <column name="id_tipo"/>
+        </many-to-one>
+        <many-to-one class="clasesHibernate.Provincias" fetch="select" name="provincias">
+            <column name="id_provincia"/>
+        </many-to-one>
+        <property name="categoria" type="string">
+            <column length="100" name="categoria"/>
+        </property>
+        <property name="nombre" type="string">
+            <column length="100" name="nombre" not-null="true"/>
+        </property>
+        <property name="direccion" type="string">
+            <column length="200" name="direccion" not-null="true"/>
+        </property>
+        <property name="cp" type="string">
+            <column length="10" name="cp" not-null="true"/>
+        </property>
+        <property name="localidad" type="string">
+            <column length="100" name="localidad" not-null="true"/>
+        </property>
+        <property name="telefono" type="string">
+            <column length="20" name="telefono" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
