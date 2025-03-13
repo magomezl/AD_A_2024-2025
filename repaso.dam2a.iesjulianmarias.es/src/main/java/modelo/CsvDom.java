@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -32,7 +33,8 @@ public class CsvDom {
 			
 			String[] lineaPais = null;
 			boolean primeraLinea = true;
-			DecimalFormat formato = new DecimalFormat("#,###.##");
+//			DecimalFormat formato = new DecimalFormat("#,###.##");
+			
 			
 			
 //			DocumentBuilderFactory dBF = DocumentBuilderFactory.newInstance();
@@ -61,15 +63,27 @@ public class CsvDom {
 					pais.appendChild(idiomasOficiales);
 
 					Element superficie = doc.createElement("superficie");
-					superficie.setAttribute("km_linea_costa", formato.format(Double.parseDouble(lineaPais[4])));
-					superficie.setAttribute("km2_agua", formato.format(Double.parseDouble(lineaPais[5])));
-					superficie.setAttribute("km2_tierra", formato.format(Double.parseDouble(lineaPais[6])));
-					superficie.appendChild(doc.createTextNode(formato.format(Double.parseDouble(lineaPais[3]))));
+//					superficie.setAttribute("km_linea_costa", formato.format(Double.parseDouble(lineaPais[4])));
+//					superficie.setAttribute("km2_agua", formato.format(Double.parseDouble(lineaPais[5])));
+//					superficie.setAttribute("km2_tierra", formato.format(Double.parseDouble(lineaPais[6])));
+//					superficie.appendChild(doc.createTextNode(formato.format(Double.parseDouble(lineaPais[3]))));
+					
+					//SIN FORMATO
+					superficie.setAttribute("km_linea_costa", lineaPais[4]);
+					superficie.setAttribute("km2_agua", lineaPais[5]);
+					superficie.setAttribute("km2_tierra", lineaPais[6]);
+					superficie.appendChild(doc.createTextNode(lineaPais[3]));
+					
+					
 					pais.appendChild(superficie);
 					
 					Element densidadPoblacion = doc.createElement("densidad_poblacion");
+//					densidadPoblacion.appendChild(doc.createTextNode(String.valueOf(
+//							formato.format( Double.parseDouble(lineaPais[1])/Double.parseDouble(lineaPais[6]) ) )));
+					
+					//SIN FORMATO
 					densidadPoblacion.appendChild(doc.createTextNode(String.valueOf(
-							formato.format( Double.parseDouble(lineaPais[1])/Double.parseDouble(lineaPais[6]) ) )));
+							Double.parseDouble(lineaPais[1])/Double.parseDouble(lineaPais[6]) ) ));
 					pais.appendChild(densidadPoblacion);
 					
 					raiz.appendChild(pais);

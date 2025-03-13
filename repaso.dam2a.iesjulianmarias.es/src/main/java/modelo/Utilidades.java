@@ -7,7 +7,11 @@ public class Utilidades {
 			+ System.getProperty("file.separator") + "resources" + System.getProperty("file.separator");
 	private static final String FILE_IN = "paises.csv";
 	private static final String FILE_OUT = "paises.xml";
+	private static final String FILE_OUT_JAXB = "paises_jaxb.xml";
 	
+	public static String getFileOutJaxb() {
+		return FILE_OUT_JAXB;
+	}
 	public static char getSeparador() {
 		return SEPARADOR;
 	}

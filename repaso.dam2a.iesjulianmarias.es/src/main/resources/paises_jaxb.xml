@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<geografia>
+    <paises>
+        <pais habitantes="47420000" nombre="España"/>
+        <pais habitantes="67750000" nombre="Francia"/>
+        <pais habitantes="83200000" nombre="Alemania"/>
+        <pais habitantes="59110000" nombre="Italia"/>
+        <pais habitantes="8703000" nombre="Suiza"/>
+        <pais habitantes="11590000" nombre="Bélgica"/>
+    </paises>
+    <idiomas_oficiales>
+        <idioma>español</idioma>
+        <idioma>alemán</idioma>
+        <idioma>italiano</idioma>
+        <idioma>francés</idioma>
+        <idioma>neerlandes</idioma>
+        <idioma>Romanche</idioma>
+    </idiomas_oficiales>
+</geografia>
