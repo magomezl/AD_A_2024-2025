@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-//@XmlAccessorType(XmlAccessType.FIELD)
+
 @XmlRootElement(name="paises")
 public class Paises_v2 {
 	private ArrayList<Pais_v2> paises = new ArrayList<Pais_v2>();

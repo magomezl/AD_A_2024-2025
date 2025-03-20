@@ -13,13 +13,13 @@ public class Pais_v2 {
 	private double habitantes;
 	private ArrayList<Idioma_v1> idiomas = new ArrayList<Idioma_v1>();
 	private Superficie_v2 superficie;
-	private String densidad_poblacion;
+	private double densidad_poblacion;
 	
 	public Pais_v2() {
 		super();
 	}
 	public Pais_v2(String nombre, double habitantes, ArrayList<Idioma_v1> idiomas, Superficie_v2 superficie,
-			String densidad) {
+			double densidad) {
 		super();
 		this.nombre = nombre;
 		this.habitantes = habitantes;
@@ -58,10 +58,10 @@ public class Pais_v2 {
 		this.superficie = superficie;
 	}
 	@XmlElement(name="densidad_poblacion")
-	public String getDensidad_poblacion() {
+	public double getDensidad_poblacion() {
 		return densidad_poblacion;
 	}
-	public void setDensidad_poblacion(String densidad) {
+	public void setDensidad_poblacion(double densidad) {
 		this.densidad_poblacion = densidad;
 	}
 	@Override
