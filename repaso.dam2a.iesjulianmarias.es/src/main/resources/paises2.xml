@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<paises>
+    <pais nombre="España">
+        <habitantes>4.742E7</habitantes>
+        <idiomas_oficiales>
+            <idioma>español</idioma>
+        </idiomas_oficiales>
+        <superficie kmagua="115800.0" kmtierra="506030.0" kmlineacosta="7905.0">506030.0</superficie>
+        <densidad_poblacion>93.70985909926289</densidad_poblacion>
+    </pais>
+    <pais nombre="Francia">
+        <habitantes>6.775E7</habitantes>
+        <idiomas_oficiales>
+            <idioma>francés</idioma>
+        </idiomas_oficiales>
+        <superficie kmagua="1530.0" kmtierra="549970.0" kmlineacosta="3427.0">551695.0</superficie>
+        <densidad_poblacion>123.188537556594</densidad_poblacion>
+    </pais>
+    <pais nombre="Alemania">
+        <habitantes>8.32E7</habitantes>
+        <idiomas_oficiales>
+            <idioma>alemán</idioma>
+        </idiomas_oficiales>
+        <superficie kmagua="8350.0" kmtierra="348672.0" kmlineacosta="2389.0">357592.0</superficie>
+        <densidad_poblacion>238.61967694566815</densidad_poblacion>
+    </pais>
+    <pais nombre="Italia">
+        <habitantes>5.911E7</habitantes>
+        <idiomas_oficiales>
+            <idioma>italiano</idioma>
+        </idiomas_oficiales>
+        <superficie kmagua="7200.0" kmtierra="294140.0" kmlineacosta="7914.0">302073.0</superficie>
+        <densidad_poblacion>200.95872713673762</densidad_poblacion>
+    </pais>
+    <pais nombre="Suiza">
+        <habitantes>8703000.0</habitantes>
+        <idiomas_oficiales>
+            <idioma>alemán</idioma>
+            <idioma>francés</idioma>
+            <idioma>italiano</idioma>
+            <idioma>Romanche</idioma>
+        </idiomas_oficiales>
+        <superficie kmagua="1740.0" kmtierra="39550.0" kmlineacosta="0.0">41285.0</superficie>
+        <densidad_poblacion>220.05056890012642</densidad_poblacion>
+    </pais>
+    <pais nombre="Bélgica">
+        <habitantes>1.159E7</habitantes>
+        <idiomas_oficiales>
+            <idioma>francés</idioma>
+            <idioma>alemán</idioma>
+            <idioma>neerlandes</idioma>
+        </idiomas_oficiales>
+        <superficie kmagua="1892.0" kmtierra="28795.0" kmlineacosta="66.5">30688.0</superficie>
+        <densidad_poblacion>402.5004341031429</densidad_poblacion>
+    </pais>
+    <pais nombre="Portugal">
+        <habitantes>1.0639726E7</habitantes>
+        <idiomas_oficiales>
+            <idioma>Portugués</idioma>
+        </idiomas_oficiales>
+        <superficie kmagua="440.0" kmtierra="91951.0" kmlineacosta="1793.0">92230.0</superficie>
+        <densidad_poblacion>115.710824243347</densidad_poblacion>
+    </pais>
+    <pais nombre="Portugal">
+        <habitantes>1.0639726E7</habitantes>
+        <idiomas_oficiales>
+            <idioma>Portugués</idioma>
+        </idiomas_oficiales>
+        <superficie kmagua="440.0" kmtierra="91951.0" kmlineacosta="1793.0">92230.0</superficie>
+        <densidad_poblacion>115.710824243347</densidad_poblacion>
+    </pais>
+    <pais nombre="Escocia">
+        <habitantes>5490100.0</habitantes>
+        <idiomas_oficiales>
+            <idioma>Escocés</idioma>
+            <idioma>Inglés</idioma>
+        </idiomas_oficiales>
+        <superficie kmagua="2330.0" kmtierra="77901.0" kmlineacosta="9911.0">80231.0</superficie>
+        <densidad_poblacion>70.47534691467375</densidad_poblacion>
+    </pais>
+    <pais nombre="Austria">
+        <habitantes>9027999.0</habitantes>
+        <idiomas_oficiales>
+            <idioma>Alemán</idioma>
+            <idioma>Croata</idioma>
+            <idioma>Esloveno</idioma>
+            <idioma>Húngaro</idioma>
+        </idiomas_oficiales>
+        <superficie kmagua="0.0" kmtierra="83871.0" kmlineacosta="0.0">83879.0</superficie>
+        <densidad_poblacion>107.64148513789033</densidad_poblacion>
+    </pais>
+    <pais nombre="Dinamarca">
+        <habitantes>5837213.0</habitantes>
+        <idiomas_oficiales>
+            <idioma>Danés</idioma>
+        </idiomas_oficiales>
+        <superficie kmagua="660.0" kmtierra="42434.0" kmlineacosta="7314.0">43094.0</superficie>
+        <densidad_poblacion>137.55981052929255</densidad_poblacion>
+    </pais>
+    <pais nombre="Polonia">
+        <habitantes>3.8E7</habitantes>
+        <idiomas_oficiales>
+            <idioma>Polaco</idioma>
+        </idiomas_oficiales>
+        <superficie kmagua="8430.0" kmtierra="304255.0" kmlineacosta="440.0">312685.0</superficie>
+        <densidad_poblacion>124.89523590409361</densidad_poblacion>
+    </pais>
+</paises>

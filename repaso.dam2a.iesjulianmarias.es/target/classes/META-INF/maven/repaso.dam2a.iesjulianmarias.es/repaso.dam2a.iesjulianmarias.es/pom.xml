@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>repaso.dam2a.iesjulianmarias.es</groupId>
+  <artifactId>repaso.dam2a.iesjulianmarias.es</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  	<!-- OPENCSV Trabajar con documentos csv-->
+  	<dependency>
+		<groupId>com.opencsv</groupId>
+		<artifactId>opencsv</artifactId>
+		<version>3.7</version>
+		<scope>compile</scope>
+	</dependency>
+  	<!-- JAXB -->
+	<dependency>
+		<groupId>javax.xml.bind</groupId>
+		<artifactId>jaxb-api</artifactId>
+		<version>2.3.1</version>
+	</dependency>
+	<dependency>
+		<groupId>org.glassfish.jaxb</groupId>
+		<artifactId>jaxb-runtime</artifactId>
+		<version>2.3.1</version>
+	</dependency>
+	<!-- Leer archivos Microsoft Office -->
+	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+	<!-- Para trabajar con documentos excel con extensión xls-->
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi</artifactId>
+		<version>4.1.2</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+	<!-- Para trabajar con documentos excel con extensión xlsx-->
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi-ooxml</artifactId>
+		<version>4.1.2</version>
+	</dependency>
+	
+	
+   </dependencies>
+  
+</project>
