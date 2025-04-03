@@ -29,23 +29,19 @@ import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.CollectionManagementService;
 import org.xmldb.api.modules.XMLResource;
 
+import modelo.conexionesSingleton.CnnXMLDB;
+import modelo.conexionesSingleton.CnnXQJ;
 import net.xqj.exist.ExistXQDataSource;
 
 public class ExistDB5 {
 
 	public static void main(String[] args) {
 		try {
-			//Cargamos el driver eXist
-			Class cl = Class.forName("org.exist.xmldb.DatabaseImpl");
-			// Creamos una instancia de la bbdd
-			Database database = (Database) cl.getDeclaredConstructor().newInstance();
-			// Registro del driver
-			DatabaseManager.registerDatabase(database);
+			Collection coleccion_padre = CnnXMLDB.getInstancia("admin", "admin", "db").getCol();
 			
-			Collection coleccion_padre = DatabaseManager.getCollection("xmldb:exist://localhost:8080/exist/xmlrpc/db", "admin", "admin");
 			Collection coleccion;
 			// Si no existe la colección la crea
-			if((coleccion=(DatabaseManager.getCollection("xmldb:exist://localhost:8080/exist/xmlrpc/db/EjerciciosRepaso", "admin", "admin")))==null) {
+			if((coleccion=(Collection) (CnnXMLDB.getInstancia("admin", "admin", "db/EjerciciosRepaso").getCol()))==null) {
 				CollectionManagementService servicio = (CollectionManagementService) coleccion_padre.getService("CollectionManagementService", "1.0");
 				coleccion = servicio.createCollection("EjerciciosRepaso");
 			}
@@ -54,26 +50,24 @@ public class ExistDB5 {
 			XMLResource recurso = (XMLResource) coleccion.getResource(file.getName());
 			if (recurso == null) {
 				//Creamos el recurso, le asignamos el contenido del fichero y lo almacenamos en la colección
-				recurso = (XMLResource) coleccion.createResource(null, "XMLResource");
+				recurso = (XMLResource) coleccion.createResource(file.getName(), "XMLResource");
 				
 				if (!file.canRead()) {
 					System.out.println("No se puede leer el archivo " + Utilidades.getRuta()+Utilidades.getFileEjercicio5In());
 					return;
 				}
+				
 				recurso.setContent(file);
 				coleccion.storeResource(recurso);
 			}
 		
-			ExistXQDataSource xqs =  new ExistXQDataSource();
-			xqs.setProperty("serverName", "localhost");
-			xqs.setProperty("port", "8080");
-			xqs.setProperty("user", "admin");
-			xqs.setProperty("password", "admin");
 			
-			XQConnection xqc = xqs.getConnection();
 			
+			XQConnection xqc = CnnXQJ.getInstancia("admin", "admin").getCon();
+			
+					
 			// Para evitar duplicidad en los valores usamos rutas relativas al contexto
-			String query = "for $pr in doc('EjerciciosRepaso/bcfc3eca.xml')/geografia/religiones_en_paises/practica " +
+			String query = "for $pr in doc('EjerciciosRepaso/religiones.xml')/geografia/religiones_en_paises/practica " +
 					" let $p := $pr/../../paises/pais[@id_pais=$pr/@id_pais]/@nombre " +
 					" let $r := $pr/../../religiones/religion[@id_religion=$pr/@id_religion]/@denominacion " +
 					" return "
@@ -94,6 +88,7 @@ public class ExistDB5 {
             doc.appendChild(raiz);
 			
 			while (result.next()) {
+				System.out.println("elemento");
 				Node node = result.getNode();
 				//Importamos el nodo del documento
 				Node importedNode = doc.importNode(node, true);
@@ -129,12 +124,12 @@ public class ExistDB5 {
 				}
 			}
 			xqc.close();
-			
-			
-			// Solucionar problema de nombres en eXistdb
-			// Crear un método para comprobar la existencia de la colección EjerciciosRepaso y subir recursos 
-			// Completar salida por consola con porcentajes de practicantes de cada religion
-			// crear singletones
+
+			// TODO Crear un método para comprobar la existencia de la colección EjerciciosRepaso y subir recursos. Aplicarlo al ejercicio
+			// TODO Completar salida por consola con porcentajes de practicantes de cada religion
+			// TODO modificar el documento religiones2.xml y añadir en cada elemento <practicaReligion> 
+			// el porcentaje de devotos de cada religión en relación a los habitantes del país correspondiente
+			// Crear singletones. HECHO
 			
 			
 		} catch (IllegalArgumentException e) {
@@ -144,21 +139,6 @@ public class ExistDB5 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (XQException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (XMLDBException e) {
