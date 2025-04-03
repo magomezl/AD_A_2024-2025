@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><religiones>
+<practicaReligion>
+        <pais nombre="España" xmlns=""/>
+        <religion denominacion="Catolicismo" xmlns=""/>
+        <devotos practicantes="30000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="España" xmlns=""/>
+        <religion denominacion="Protestantismo" xmlns=""/>
+        <devotos practicantes="5000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="España" xmlns=""/>
+        <religion denominacion="Islam" xmlns=""/>
+        <devotos practicantes="2000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="España" xmlns=""/>
+        <religion denominacion="Judaísmo" xmlns=""/>
+        <devotos practicantes="1000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="España" xmlns=""/>
+        <religion denominacion="Budismo" xmlns=""/>
+        <devotos practicantes="500000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="España" xmlns=""/>
+        <religion denominacion="Hinduismo" xmlns=""/>
+        <devotos practicantes="100000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Portugal" xmlns=""/>
+        <religion denominacion="Catolicismo" xmlns=""/>
+        <devotos practicantes="9000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Portugal" xmlns=""/>
+        <religion denominacion="Protestantismo" xmlns=""/>
+        <devotos practicantes="2000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Portugal" xmlns=""/>
+        <religion denominacion="Islam" xmlns=""/>
+        <devotos practicantes="1000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Portugal" xmlns=""/>
+        <religion denominacion="Judaísmo" xmlns=""/>
+        <devotos practicantes="500000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Portugal" xmlns=""/>
+        <religion denominacion="Budismo" xmlns=""/>
+        <devotos practicantes="200000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Portugal" xmlns=""/>
+        <religion denominacion="Hinduismo" xmlns=""/>
+        <devotos practicantes="100000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Francia" xmlns=""/>
+        <religion denominacion="Catolicismo" xmlns=""/>
+        <devotos practicantes="40000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Francia" xmlns=""/>
+        <religion denominacion="Protestantismo" xmlns=""/>
+        <devotos practicantes="20000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Francia" xmlns=""/>
+        <religion denominacion="Islam" xmlns=""/>
+        <devotos practicantes="5000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Francia" xmlns=""/>
+        <religion denominacion="Judaísmo" xmlns=""/>
+        <devotos practicantes="2000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Francia" xmlns=""/>
+        <religion denominacion="Budismo" xmlns=""/>
+        <devotos practicantes="1000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Francia" xmlns=""/>
+        <religion denominacion="Hinduismo" xmlns=""/>
+        <devotos practicantes="500000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Alemania" xmlns=""/>
+        <religion denominacion="Catolicismo" xmlns=""/>
+        <devotos practicantes="22000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Alemania" xmlns=""/>
+        <religion denominacion="Protestantismo" xmlns=""/>
+        <devotos practicantes="20000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Alemania" xmlns=""/>
+        <religion denominacion="Islam" xmlns=""/>
+        <devotos practicantes="4000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Alemania" xmlns=""/>
+        <religion denominacion="Judaísmo" xmlns=""/>
+        <devotos practicantes="1000000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Alemania" xmlns=""/>
+        <religion denominacion="Budismo" xmlns=""/>
+        <devotos practicantes="500000" xmlns=""/>
+    </practicaReligion>
+<practicaReligion>
+        <pais nombre="Alemania" xmlns=""/>
+        <religion denominacion="Hinduismo" xmlns=""/>
+        <devotos practicantes="200000" xmlns=""/>
+    </practicaReligion>
+</religiones>

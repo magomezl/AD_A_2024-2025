@@ -14,11 +14,17 @@ public class Utilidades {
 	private static final String FILE_OUT_JAXBEXCEL = "paises2.xml";
 	private static final String FILE_OUT_DOMEXCEL = "paisesDOMExcel.xml";
 	
+	private static final String FILE_EJERCICIO5_IN = "religiones.xml";
+	private static final String FILE_EJERCICIO5_OUT = "religiones2.xml";
+	
 	public static String getFileOutDomexcel() {
 		return FILE_OUT_DOMEXCEL;
 	}
 	public static String getFileInDomexcel() {
 		return FILE_IN_DOMEXCEL;
+	}
+	public static String getFileEjercicio5Out() {
+		return FILE_EJERCICIO5_OUT;
 	}
 	public static String getFileInExcel() {
 		return FILE_IN_EXCEL;
@@ -44,4 +50,9 @@ public class Utilidades {
 	public static String getFileOut() {
 		return FILE_OUT;
 	}
+	public static String getFileEjercicio5In() {
+		return FILE_EJERCICIO5_IN;
+	}
+	
+	
 }

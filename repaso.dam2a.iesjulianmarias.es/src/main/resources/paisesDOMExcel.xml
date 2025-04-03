@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<paises>
+        
+    <pais nombre="España">
+                
+        <habitantes>47420000</habitantes>
+                
+        <idiomas_oficiales>
+                        
+            <idioma>español</idioma>
+                    
+        </idiomas_oficiales>
+                
+        <superficie kmagua="115800" kmlineacosta="7905" kmtierra="506030">506030</superficie>
+                
+        <densidad_poblacion>93.70985909926289</densidad_poblacion>
+            
+    </pais>
+        
+    <pais nombre="Francia">
+                
+        <habitantes>67750000</habitantes>
+                
+        <idiomas_oficiales>
+                        
+            <idioma>francés</idioma>
+                    
+        </idiomas_oficiales>
+                
+        <superficie kmagua="1530" kmlineacosta="3427" kmtierra="549970">551695</superficie>
+                
+        <densidad_poblacion>123.188537556594</densidad_poblacion>
+            
+    </pais>
+        
+    <pais nombre="Alemania">
+                
+        <habitantes>83200000</habitantes>
+                
+        <idiomas_oficiales>
+                        
+            <idioma>alemán</idioma>
+                    
+        </idiomas_oficiales>
+                
+        <superficie kmagua="8350" kmlineacosta="2389" kmtierra="348672">357592</superficie>
+                
+        <densidad_poblacion>238.61967694566815</densidad_poblacion>
+            
+    </pais>
+        
+    <pais nombre="Italia">
+                
+        <habitantes>59110000</habitantes>
+                
+        <idiomas_oficiales>
+                        
+            <idioma>italiano</idioma>
+                    
+        </idiomas_oficiales>
+                
+        <superficie kmagua="7200" kmlineacosta="7914" kmtierra="294140">302073</superficie>
+                
+        <densidad_poblacion>200.95872713673762</densidad_poblacion>
+            
+    </pais>
+        
+    <pais nombre="Suiza">
+                
+        <habitantes>8703000</habitantes>
+                
+        <idiomas_oficiales>
+                        
+            <idioma>alemán</idioma>
+                        
+            <idioma>francés</idioma>
+                        
+            <idioma>italiano</idioma>
+                        
+            <idioma>Romanche</idioma>
+                    
+        </idiomas_oficiales>
+                
+        <superficie kmagua="1740" kmlineacosta="0" kmtierra="39550">41285</superficie>
+                
+        <densidad_poblacion>220.05056890012642</densidad_poblacion>
+            
+    </pais>
+        
+    <pais nombre="Bélgica">
+                
+        <habitantes>11590000</habitantes>
+                
+        <idiomas_oficiales>
+                        
+            <idioma>francés</idioma>
+                        
+            <idioma>alemán</idioma>
+                        
+            <idioma>neerlandes</idioma>
+                    
+        </idiomas_oficiales>
+                
+        <superficie kmagua="1892" kmlineacosta="66.5" kmtierra="28795">30688</superficie>
+                
+        <densidad_poblacion>402.5004341031429</densidad_poblacion>
+            
+    </pais>
+    
+    <pais nombre="Angola">
+        <habitantes>3.5159E7</habitantes>
+        <idiomas_oficiales>
+            <idioma>Portugués</idioma>
+            <idioma>Kikongo</idioma>
+            <idioma>Chokwe</idioma>
+            <idioma>Umbundu</idioma>
+        </idiomas_oficiales>
+        <superficie kmagua="0.0" kmlineacosta="1600.0" kmtierra="1246700.0">1246700.0</superficie>
+        <densidad_poblacion>28.201652362236302</densidad_poblacion>
+    </pais>
+    <pais nombre="Israel">
+        <habitantes>1.00098E7</habitantes>
+        <idiomas_oficiales>
+            <idioma>Hebreo</idioma>
+            <idioma>Árabe</idioma>
+        </idiomas_oficiales>
+        <superficie kmagua="442.0" kmlineacosta="273.0" kmtierra="20257.0">22145.0</superficie>
+        <densidad_poblacion>494.1402971812213</densidad_poblacion>
+    </pais>
+</paises>

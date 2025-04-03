@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<geografia>
+    <paises>
+        <pais id_pais="1" nombre="España" num_habitantes="47000000" idioma_oficial="Español">
+            <superficie>505990</superficie>
+            <km_linea_costa>4964</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>505990</km2_tierra>
+        </pais>
+        <pais id_pais="2" nombre="Portugal" num_habitantes="10260000" idioma_oficial="Portugués">
+            <superficie>92212</superficie>
+            <km_linea_costa>1793</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>92212</km2_tierra>
+        </pais>
+        <pais id_pais="3" nombre="Francia" num_habitantes="67000000" idioma_oficial="Francés">
+            <superficie>551695</superficie>
+            <km_linea_costa>3427</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>551695</km2_tierra>
+        </pais>
+        <pais id_pais="4" nombre="Alemania" num_habitantes="83000000" idioma_oficial="Alemán">
+            <superficie>357386</superficie>
+            <km_linea_costa>2389</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>357386</km2_tierra>
+        </pais>
+    </paises>
+    <ciudades>
+        <ciudad id_ciudad="1" nombre="Madrid" num_habitantes="3223000" pais="1">
+            <superficie>604</superficie>
+            <km_linea_costa>0</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>604</km2_tierra>
+        </ciudad>
+        <ciudad id_ciudad="2" nombre="Barcelona" num_habitantes="1620000" pais="1">
+            <superficie>101</superficie>
+            <km_linea_costa>4.5</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>101</km2_tierra>
+        </ciudad>
+        <ciudad id_ciudad="3" nombre="Valencia" num_habitantes="791000" pais="1">
+            <superficie>134</superficie>
+            <km_linea_costa>7</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>134</km2_tierra>
+        </ciudad>
+        <ciudad id_ciudad="4" nombre="Lisboa" num_habitantes="504718" pais="2">
+            <superficie>100</superficie>
+            <km_linea_costa>0</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>100</km2_tierra>
+        </ciudad>
+        <ciudad id_ciudad="5" nombre="Porto" num_habitantes="214349" pais="2">
+            <superficie>41</superficie>
+            <km_linea_costa>0</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>41</km2_tierra>
+        </ciudad>
+        <ciudad id_ciudad="6" nombre="Braga" num_habitantes="181494" pais="2">
+            <superficie>183</superficie>
+            <km_linea_costa>0</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>183</km2_tierra>
+        </ciudad>
+        <ciudad id_ciudad="7" nombre="París" num_habitantes="2148000" pais="3">
+            <superficie>105</superficie>
+            <km_linea_costa>0</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>105</km2_tierra>
+        </ciudad>
+        <ciudad id_ciudad="8" nombre="Marsella" num_habitantes="861635" pais="3">
+            <superficie>241</superficie>
+            <km_linea_costa>57</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>241</km2_tierra>
+        </ciudad>
+        <ciudad id_ciudad="9" nombre="Lyon" num_habitantes="515695" pais="3">
+            <superficie>48</superficie>
+            <km_linea_costa>0</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>48</km2_tierra>
+        </ciudad>
+        <ciudad id_ciudad="10" nombre="Berlín" num_habitantes="3644826" pais="4">
+            <superficie>891</superficie>
+            <km_linea_costa>0</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>891</km2_tierra>
+        </ciudad>
+        <ciudad id_ciudad="11" nombre="Hamburgo" num_habitantes="1841179" pais="4">
+            <superficie>755</superficie>
+            <km_linea_costa>0</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>755</km2_tierra>
+        </ciudad>
+        <ciudad id_ciudad="12" nombre="Múnich" num_habitantes="1471508" pais="4">
+            <superficie>310</superficie>
+            <km_linea_costa>0</km_linea_costa>
+            <km2_agua>0</km2_agua>
+            <km2_tierra>310</km2_tierra>
+        </ciudad>
+    </ciudades>
+    <religiones>
+        <religion id_religion="1" denominacion="Catolicismo"/>
+        <religion id_religion="2" denominacion="Protestantismo"/>
+        <religion id_religion="3" denominacion="Islam"/>
+        <religion id_religion="4" denominacion="Judaísmo"/>
+        <religion id_religion="5" denominacion="Budismo"/>
+        <religion id_religion="6" denominacion="Hinduismo"/>
+    </religiones>
+    <religiones_en_paises>
+        <practica id_pais="1" id_religion="1" practicantes="30000000"/>
+        <practica id_pais="1" id_religion="2" practicantes="5000000"/>
+        <practica id_pais="1" id_religion="3" practicantes="2000000"/>
+        <practica id_pais="1" id_religion="4" practicantes="1000000"/>
+        <practica id_pais="1" id_religion="5" practicantes="500000"/>
+        <practica id_pais="1" id_religion="6" practicantes="100000"/>
+        
+        <practica id_pais="2" id_religion="1" practicantes="9000000"/>
+        <practica id_pais="2" id_religion="2" practicantes="2000000"/>
+        <practica id_pais="2" id_religion="3" practicantes="1000000"/>
+        <practica id_pais="2" id_religion="4" practicantes="500000"/>
+        <practica id_pais="2" id_religion="5" practicantes="200000"/>
+        <practica id_pais="2" id_religion="6" practicantes="100000"/>
+        
+        <practica id_pais="3" id_religion="1" practicantes="40000000"/>
+        <practica id_pais="3" id_religion="2" practicantes="20000000"/>
+        <practica id_pais="3" id_religion="3" practicantes="5000000"/>
+        <practica id_pais="3" id_religion="4" practicantes="2000000"/>
+        <practica id_pais="3" id_religion="5" practicantes="1000000"/>
+        <practica id_pais="3" id_religion="6" practicantes="500000"/>
+        
+         <practica id_pais="4" id_religion="1" practicantes="22000000"/>
+        <practica id_pais="4" id_religion="2" practicantes="20000000"/>
+        <practica id_pais="4" id_religion="3" practicantes="4000000"/>
+        <practica id_pais="4" id_religion="4" practicantes="1000000"/>
+        <practica id_pais="4" id_religion="5" practicantes="500000"/>
+        <practica id_pais="4" id_religion="6" practicantes="200000"/>
+    </religiones_en_paises> 
+</geografia>
