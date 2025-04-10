@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated 10 abr 2025 11:52:28 by Hibernate Tools 6.5.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="geografia" name="modelo.clasesHibernate.Religiones" optimistic-lock="none" table="religiones">
+        <id name="idReligion" type="int">
+            <column name="id_religion"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="nombre" type="string">
+            <column length="100" name="nombre"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="practicareligioneses" table="practicareligiones">
+            <key>
+                <column name="id_religion" not-null="true"/>
+            </key>
+            <one-to-many class="modelo.clasesHibernate.Practicareligiones"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -11,7 +11,7 @@ public class CnnXMLDB {
 		private static  CnnXMLDB instancia;
 		private static Collection col; 
 		
-		private CnnXMLDB(String user, String passwd, String URICol) {
+		private CnnXMLDB(String user, String passwd) {
 			try {
 				//Cargamos el driver eXist
 				Class cl = Class.forName("org.exist.xmldb.DatabaseImpl");
@@ -19,8 +19,7 @@ public class CnnXMLDB {
 				Database database = (Database) cl.getDeclaredConstructor().newInstance();
 				// Registro del driver
 				DatabaseManager.registerDatabase(database);
-				col = DatabaseManager.getCollection("xmldb:exist://localhost:8080/exist/xmlrpc/" + URICol,
-						user, passwd);
+				col = DatabaseManager.getCollection("xmldb:exist://localhost:8080/exist/xmlrpc/db", user, passwd);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (InstantiationException e) {
@@ -49,9 +48,9 @@ public class CnnXMLDB {
 			
 		}
 		
-		public static synchronized CnnXMLDB getInstancia(String user, String passwd, String URICol) {
+		public static synchronized CnnXMLDB getInstancia(String user, String passwd) {
 			if (instancia==null ) {
-				instancia = new CnnXMLDB(user, passwd, URICol);
+				instancia = new CnnXMLDB(user, passwd);
 			}
 			return instancia;
 		}

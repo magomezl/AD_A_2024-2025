@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated 10 abr 2025 11:52:28 by Hibernate Tools 6.5.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="geografia" name="modelo.clasesHibernate.Practicareligiones" optimistic-lock="none" table="practicareligiones">
+        <composite-id class="modelo.clasesHibernate.PracticareligionesId" name="id">
+            <key-property name="idPais" type="int">
+                <column name="id_pais"/>
+            </key-property>
+            <key-property name="idReligion" type="int">
+                <column name="id_religion"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="modelo.clasesHibernate.Religiones" fetch="select" insert="false" name="religiones" update="false">
+            <column name="id_religion" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="modelo.clasesHibernate.Paises" fetch="select" insert="false" name="paises" update="false">
+            <column name="id_pais" not-null="true"/>
+        </many-to-one>
+        <property name="practicantes" type="java.lang.Float">
+            <column name="practicantes" precision="12"/>
+        </property>
+    </class>
+</hibernate-mapping>

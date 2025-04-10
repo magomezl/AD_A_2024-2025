@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated 10 abr 2025 11:52:28 by Hibernate Tools 6.5.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="geografia" name="modelo.clasesHibernate.Ciudades" optimistic-lock="none" table="ciudades">
+        <id name="idCiudad" type="int">
+            <column name="id_ciudad"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="modelo.clasesHibernate.Paises" fetch="select" name="paises">
+            <column name="pais"/>
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column length="100" name="nombre"/>
+        </property>
+        <property name="numHabitantes" type="java.lang.Float">
+            <column name="num_habitantes" precision="12"/>
+        </property>
+        <property name="superficie" type="java.lang.Float">
+            <column name="superficie" precision="12"/>
+        </property>
+        <property name="kmLineaCosta" type="java.lang.Float">
+            <column name="km_linea_costa" precision="12"/>
+        </property>
+        <property name="km2Agua" type="java.lang.Float">
+            <column name="km2_agua" precision="12"/>
+        </property>
+        <property name="km2Tierra" type="java.lang.Float">
+            <column name="km2_tierra" precision="12"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated 10 abr 2025 11:52:28 by Hibernate Tools 6.5.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="geografia" name="modelo.clasesHibernate.Paises" optimistic-lock="none" table="paises">
+        <id name="idPais" type="int">
+            <column name="id_pais"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="nombre" type="string">
+            <column length="100" name="nombre"/>
+        </property>
+        <property name="numHabitantes" type="java.lang.Float">
+            <column name="num_habitantes" precision="12"/>
+        </property>
+        <property name="idiomaOficial" type="string">
+            <column length="100" name="idioma_oficial"/>
+        </property>
+        <property name="superficie" type="java.lang.Float">
+            <column name="superficie" precision="12"/>
+        </property>
+        <property name="kmLineaCosta" type="java.lang.Float">
+            <column name="km_linea_costa" precision="12"/>
+        </property>
+        <property name="km2Agua" type="java.lang.Float">
+            <column name="km2_agua" precision="12"/>
+        </property>
+        <property name="km2Tierra" type="java.lang.Float">
+            <column name="km2_tierra" precision="12"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="practicareligioneses" table="practicareligiones">
+            <key>
+                <column name="id_pais" not-null="true"/>
+            </key>
+            <one-to-many class="modelo.clasesHibernate.Practicareligiones"/>
+        </set>
+        <set fetch="select" inverse="false" lazy="true" name="idiomases" table="idiomaspaises">
+            <key>
+                <column name="id_pais" not-null="true"/>
+            </key>
+            <many-to-many entity-name="modelo.clasesHibernate.Idiomas">
+                <column name="id_idioma" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="ciudadeses" table="ciudades">
+            <key>
+                <column name="pais"/>
+            </key>
+            <one-to-many class="modelo.clasesHibernate.Ciudades"/>
+        </set>
+    </class>
+</hibernate-mapping>
