@@ -16,8 +16,19 @@ public class Religiones implements java.io.Serializable {
 	public Religiones() {
 	}
 
+	public Religiones(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
+	
 	public Religiones(int idReligion) {
 		this.idReligion = idReligion;
+	}
+	
+	public Religiones(String nombre, Set practicareligioneses) {
+		this.idReligion = idReligion;
+		this.nombre = nombre;
+		this.practicareligioneses = practicareligioneses;
 	}
 
 	public Religiones(int idReligion, String nombre, Set practicareligioneses) {

@@ -4,7 +4,7 @@
     <class catalog="geografia" name="modelo.clasesHibernate.Religiones" optimistic-lock="none" table="religiones">
         <id name="idReligion" type="int">
             <column name="id_religion"/>
-            <generator class="assigned"/>
+            <generator class="identity"/>
         </id>
         <property name="nombre" type="string">
             <column length="100" name="nombre"/>

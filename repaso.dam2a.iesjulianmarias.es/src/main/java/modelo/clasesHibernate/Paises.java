@@ -12,7 +12,6 @@ public class Paises implements java.io.Serializable {
 	private int idPais;
 	private String nombre;
 	private Float numHabitantes;
-	private String idiomaOficial;
 	private Float superficie;
 	private Float kmLineaCosta;
 	private Float km2Agua;
@@ -28,13 +27,12 @@ public class Paises implements java.io.Serializable {
 		this.idPais = idPais;
 	}
 
-	public Paises(int idPais, String nombre, Float numHabitantes, String idiomaOficial, Float superficie,
+	public Paises(int idPais, String nombre, Float numHabitantes, Float superficie,
 			Float kmLineaCosta, Float km2Agua, Float km2Tierra, Set practicareligioneses, Set idiomases,
 			Set ciudadeses) {
 		this.idPais = idPais;
 		this.nombre = nombre;
 		this.numHabitantes = numHabitantes;
-		this.idiomaOficial = idiomaOficial;
 		this.superficie = superficie;
 		this.kmLineaCosta = kmLineaCosta;
 		this.km2Agua = km2Agua;
@@ -44,6 +42,20 @@ public class Paises implements java.io.Serializable {
 		this.ciudadeses = ciudadeses;
 	}
 
+	public Paises(String nombre, Float numHabitantes, Float superficie,
+			Float kmLineaCosta, Float km2Agua, Float km2Tierra, Set practicareligioneses, Set idiomases,
+			Set ciudadeses) {
+		this.nombre = nombre;
+		this.numHabitantes = numHabitantes;
+		this.superficie = superficie;
+		this.kmLineaCosta = kmLineaCosta;
+		this.km2Agua = km2Agua;
+		this.km2Tierra = km2Tierra;
+		this.practicareligioneses = practicareligioneses;
+		this.idiomases = idiomases;
+		this.ciudadeses = ciudadeses;
+	}
+	
 	public int getIdPais() {
 		return this.idPais;
 	}
@@ -68,14 +80,7 @@ public class Paises implements java.io.Serializable {
 		this.numHabitantes = numHabitantes;
 	}
 
-	public String getIdiomaOficial() {
-		return this.idiomaOficial;
-	}
-
-	public void setIdiomaOficial(String idiomaOficial) {
-		this.idiomaOficial = idiomaOficial;
-	}
-
+	
 	public Float getSuperficie() {
 		return this.superficie;
 	}

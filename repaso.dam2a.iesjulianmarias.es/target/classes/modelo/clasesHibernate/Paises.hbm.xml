@@ -4,16 +4,13 @@
     <class catalog="geografia" name="modelo.clasesHibernate.Paises" optimistic-lock="none" table="paises">
         <id name="idPais" type="int">
             <column name="id_pais"/>
-            <generator class="assigned"/>
+            <generator class="identity"/>
         </id>
         <property name="nombre" type="string">
             <column length="100" name="nombre"/>
         </property>
         <property name="numHabitantes" type="java.lang.Float">
             <column name="num_habitantes" precision="12"/>
-        </property>
-        <property name="idiomaOficial" type="string">
-            <column length="100" name="idioma_oficial"/>
         </property>
         <property name="superficie" type="java.lang.Float">
             <column name="superficie" precision="12"/>

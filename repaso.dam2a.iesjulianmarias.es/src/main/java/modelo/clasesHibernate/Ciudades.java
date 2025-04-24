@@ -34,6 +34,17 @@ public class Ciudades implements java.io.Serializable {
 		this.km2Tierra = km2Tierra;
 	}
 
+	public Ciudades(Paises paises, String nombre, Float numHabitantes, Float superficie,
+			Float kmLineaCosta, Float km2Agua, Float km2Tierra) {
+		this.paises = paises;
+		this.nombre = nombre;
+		this.numHabitantes = numHabitantes;
+		this.superficie = superficie;
+		this.kmLineaCosta = kmLineaCosta;
+		this.km2Agua = km2Agua;
+		this.km2Tierra = km2Tierra;
+	}
+	
 	public int getIdCiudad() {
 		return this.idCiudad;
 	}

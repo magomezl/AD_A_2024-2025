@@ -26,6 +26,16 @@ public class Idiomas implements java.io.Serializable {
 		this.paiseses = paiseses;
 	}
 
+	public Idiomas(String idioma, Set paiseses) {
+		this.idioma = idioma;
+		this.paiseses = paiseses;
+	}
+	
+	
+	public Idiomas(String idioma) {
+		this.idioma = idioma;
+	}
+	
 	public int getIdIdioma() {
 		return this.idIdioma;
 	}

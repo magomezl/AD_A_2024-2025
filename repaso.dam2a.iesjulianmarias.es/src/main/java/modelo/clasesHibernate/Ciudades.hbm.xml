@@ -4,7 +4,7 @@
     <class catalog="geografia" name="modelo.clasesHibernate.Ciudades" optimistic-lock="none" table="ciudades">
         <id name="idCiudad" type="int">
             <column name="id_ciudad"/>
-            <generator class="assigned"/>
+            <generator class="identity"/>
         </id>
         <many-to-one class="modelo.clasesHibernate.Paises" fetch="select" name="paises">
             <column name="pais"/>

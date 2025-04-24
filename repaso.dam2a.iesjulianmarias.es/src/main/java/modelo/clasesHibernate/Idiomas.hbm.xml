@@ -4,7 +4,7 @@
     <class catalog="geografia" name="modelo.clasesHibernate.Idiomas" optimistic-lock="none" table="idiomas">
         <id name="idIdioma" type="int">
             <column name="id_idioma"/>
-            <generator class="assigned"/>
+            <generator class="identity"/>
         </id>
         <property name="idioma" type="string">
             <column length="100" name="idioma"/>
