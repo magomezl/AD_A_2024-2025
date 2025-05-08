@@ -15,7 +15,7 @@ public class Religiones implements java.io.Serializable {
 
 	public Religiones() {
 	}
-
+	// Hemos añadido este constructor
 	public Religiones(String nombre) {
 		super();
 		this.nombre = nombre;

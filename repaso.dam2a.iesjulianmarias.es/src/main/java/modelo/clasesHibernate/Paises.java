@@ -41,7 +41,7 @@ public class Paises implements java.io.Serializable {
 		this.idiomases = idiomases;
 		this.ciudadeses = ciudadeses;
 	}
-
+	// Hemos añadido este constructor
 	public Paises(String nombre, Float numHabitantes, Float superficie,
 			Float kmLineaCosta, Float km2Agua, Float km2Tierra, Set practicareligioneses, Set idiomases,
 			Set ciudadeses) {
